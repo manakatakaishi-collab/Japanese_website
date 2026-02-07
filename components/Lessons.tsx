@@ -1,4 +1,6 @@
 import React from 'react';
+import Link from 'next/link';
+import { withBasePath } from '@/lib/base-path';
 
 const Lessons: React.FC = () => {
   const lessonFormats = [
@@ -44,8 +46,8 @@ const Lessons: React.FC = () => {
     'Progress review over each 3-month period',
   ];
 
-  const faqIllustration = '/images/faq-illustration.png';
-  const heroImage = '/images/lessons-hero.png';
+  const faqIllustration = withBasePath('/images/faq-illustration.png');
+  const heroImage = withBasePath('/images/lessons-hero.png');
 
   return (
     <div className="bg-white">
@@ -73,18 +75,18 @@ const Lessons: React.FC = () => {
                 </p>
               </div>
               <div className="flex flex-wrap gap-5">
-                <a
+                <Link
                   href="/booking"
                   className="bg-primary text-white px-10 py-5 text-sm font-black uppercase tracking-widest hover:bg-black transition-all shadow-xl shadow-primary/20"
                 >
                   Book a Trial Lesson
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/booking"
                   className="bg-white border-2 border-slate-200 text-slate-900 px-10 py-5 text-sm font-black uppercase tracking-widest hover:border-primary hover:text-primary transition-all"
                 >
                   Ask a Question
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -168,12 +170,12 @@ const Lessons: React.FC = () => {
                         </li>
                       ))}
                     </ul>
-                    <a
+                    <Link
                       href="/booking"
                       className="inline-flex items-center gap-2 text-sm font-black text-primary uppercase tracking-widest pt-2 hover:gap-4 transition-all"
                     >
                       Check Availability <span className="material-symbols-outlined text-sm">arrow_forward</span>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -248,12 +250,12 @@ const Lessons: React.FC = () => {
               ))}
               <div className="mt-16 p-10 bg-white rounded-[3rem] border border-dashed border-slate-200 text-center">
                 <p className="text-slate-400 font-bold uppercase tracking-widest text-[10px] mb-4">Need specific information?</p>
-                <a
+                <Link
                   href="/booking"
                   className="text-primary font-black uppercase tracking-[0.2em] text-sm hover:text-slate-900 transition-colors"
                 >
                   Contact Me Directly
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -275,12 +277,12 @@ const Lessons: React.FC = () => {
                 Ready to start <br />your Japanese lessons?
               </h2>
               <p className="text-white/80 text-xl font-medium max-w-xl">Book a trial lesson and get a plan based on your real goals.</p>
-              <a
+              <Link
                 href="/booking"
                 className="bg-white text-primary px-16 py-7 rounded-2xl font-black text-sm uppercase tracking-[0.25em] hover:bg-slate-900 hover:text-white transition-all shadow-2xl active:scale-95"
               >
                 Book Your Trial Lesson
-              </a>
+              </Link>
             </div>
           </div>
         </div>

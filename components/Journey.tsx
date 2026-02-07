@@ -1,4 +1,6 @@
 import React from 'react';
+import Link from 'next/link';
+import { withBasePath } from '@/lib/base-path';
 
 const Journey: React.FC = () => {
   const teachingApproach = [
@@ -31,7 +33,7 @@ const Journey: React.FC = () => {
           <div className="flex flex-col gap-10 lg:flex-row lg:items-center">
             <div
               className="w-full bg-center bg-no-repeat aspect-[4/5] bg-cover rounded-2xl shadow-2xl lg:w-1/2 border-8 border-white"
-              style={{ backgroundImage: 'url("/images/about-manaka.jpg")' }}
+              style={{ backgroundImage: `url('${withBasePath('/images/about-manaka.jpg')}')` }}
             ></div>
             <div className="flex flex-col gap-8 lg:w-1/2 lg:pl-16 text-left">
               <div className="flex flex-col gap-4">
@@ -99,7 +101,7 @@ const Journey: React.FC = () => {
                 <div className="absolute right-[-52px] top-2 bg-primary size-10 rounded-full flex items-center justify-center text-white shadow-xl z-10 border-4 border-white hidden md:flex">
                   <span className="material-symbols-outlined text-sm">school</span>
                 </div>
-                <div className="w-full h-64 bg-cover bg-center rounded-2xl shadow-xl transition-all duration-500 hover:scale-[1.02]" style={{ backgroundImage: "url('/images/journey-exeter.png')" }}></div>
+                <div className="w-full h-64 bg-cover bg-center rounded-2xl shadow-xl transition-all duration-500 hover:scale-[1.02]" style={{ backgroundImage: `url('${withBasePath('/images/journey-exeter.png')}')` }}></div>
               </div>
               <div className="order-1 md:order-2 flex flex-col items-start md:pl-4">
                 <div className="inline-block px-4 py-1 bg-primary text-white text-xs font-black tracking-widest uppercase mb-4 rounded-full shadow-lg shadow-primary/20">2023 - 2025</div>
@@ -122,7 +124,7 @@ const Journey: React.FC = () => {
                 <div className="absolute left-[-52px] top-2 bg-primary size-10 rounded-full flex items-center justify-center text-white shadow-xl z-10 border-4 border-white hidden md:flex">
                   <span className="material-symbols-outlined text-sm">explore</span>
                 </div>
-                <div className="w-full h-64 bg-cover bg-center rounded-2xl shadow-xl transition-all duration-500 hover:scale-[1.02]" style={{ backgroundImage: "url('/images/journey-toulouse.png')" }}></div>
+                <div className="w-full h-64 bg-cover bg-center rounded-2xl shadow-xl transition-all duration-500 hover:scale-[1.02]" style={{ backgroundImage: `url('${withBasePath('/images/journey-toulouse.png')}')` }}></div>
               </div>
             </div>
           </div>
@@ -165,12 +167,12 @@ const Journey: React.FC = () => {
               <h2 className="text-4xl md:text-5xl font-black font-display tracking-tighter leading-none uppercase">Ready to start learning Japanese?</h2>
               <p className="text-xl font-medium text-white/90">Book a trial lesson and we will build your study plan together.</p>
             </div>
-            <a
+            <Link
               href="/booking"
               className="bg-white text-primary px-14 py-6 rounded-2xl font-black text-xl hover:bg-gray-50 transition-all shadow-2xl active:scale-95 relative z-10 uppercase tracking-widest"
             >
               BOOK A TRIAL LESSON
-            </a>
+            </Link>
           </div>
         </div>
       </div>

@@ -1,7 +1,9 @@
 import React from 'react';
+import Link from 'next/link';
+import { withBasePath } from '@/lib/base-path';
 
 const Hero: React.FC = () => {
-  const manakaHeroImage = '/images/profile-manaka.jpg';
+  const manakaHeroImage = withBasePath('/images/profile-manaka.jpg');
 
   const formats = [
     {
@@ -71,18 +73,18 @@ const Hero: React.FC = () => {
                 </p>
               </div>
               <div className="flex flex-wrap gap-5">
-                <a
+                <Link
                   href="/booking"
                   className="bg-primary text-white px-10 py-5 text-sm font-black uppercase tracking-widest rounded-none hover:bg-black transition-all shadow-xl shadow-primary/20"
                 >
                   Book a Trial Lesson
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/lessons"
                   className="bg-white border-2 border-slate-200 text-slate-900 px-10 py-5 text-sm font-black uppercase tracking-widest rounded-none hover:border-primary hover:text-primary transition-all"
                 >
                   View Lessons & Fees
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -165,7 +167,7 @@ const Hero: React.FC = () => {
               <img
                 alt="Japanese learning materials"
                 className="w-full h-full object-cover"
-                src="/images/lessons-hero.png"
+                src={withBasePath('/images/lessons-hero.png')}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex flex-col justify-end p-12 text-left">
                 <p className="text-white text-3xl font-black leading-tight italic">

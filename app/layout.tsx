@@ -4,6 +4,8 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import "./globals.css";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://manaka-japanese.fr";
+
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta",
   subsets: ["latin"],
@@ -22,7 +24,7 @@ const notoSerifJp = Noto_Serif_JP({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://manaka-japanese.fr"),
+  metadataBase: new URL(siteUrl),
   title: {
     default: "Manaka Japanese - Authentic Language Tutoring in Toulouse",
     template: "%s | Manaka Japanese",
@@ -31,7 +33,7 @@ export const metadata: Metadata = {
     "Personalized Japanese language tutoring in Toulouse with a native teacher. Master conversation, grammar, and JLPT preparation.",
   openGraph: {
     type: "website",
-    url: "https://manaka-japanese.fr",
+    url: siteUrl,
     title: "Manaka Japanese - Authentic Language Tutoring in Toulouse",
     description:
       "Personalized Japanese language tutoring with a native teacher. Master conversation, grammar, and JLPT preparation.",

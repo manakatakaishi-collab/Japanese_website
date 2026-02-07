@@ -1,51 +1,14 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
+import Script from 'next/script';
 
 const Booking: React.FC = () => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [statusMessage, setStatusMessage] = useState('');
-
   const contactImage = 'https://images.unsplash.com/photo-1526657283335-33eeac1f2582?q=80&w=2070&auto=format&fit=crop';
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setStatusMessage('');
-
-    const formData = new FormData(e.currentTarget);
-    const payload = {
-      name: String(formData.get('name') || ''),
-      email: String(formData.get('email') || ''),
-      level: String(formData.get('level') || ''),
-      format: String(formData.get('format') || ''),
-      ageGroup: String(formData.get('ageGroup') || ''),
-      goalType: String(formData.get('goalType') || ''),
-      message: String(formData.get('message') || ''),
-    };
-
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      });
-
-      if (!response.ok) {
-        throw new Error('Request failed');
-      }
-
-      setStatusMessage('Thanks! Your inquiry was sent successfully.');
-      e.currentTarget.reset();
-    } catch {
-      setStatusMessage('Unable to send right now. Please email contact@manaka-japanese.fr.');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   return (
     <div className="bg-white">
+      <Script src="https://tally.so/widgets/embed.js" strategy="afterInteractive" />
       <main className="max-w-[1200px] mx-auto px-6 lg:px-10 py-16 text-left">
         <div className="mb-20">
           <div className="flex flex-col lg:flex-row items-center gap-16">
@@ -90,71 +53,16 @@ const Booking: React.FC = () => {
                 <span className="w-2 h-8 bg-primary rounded-full"></span>
                 Inquiry Form
               </h3>
-              <form className="space-y-6" onSubmit={handleSubmit}>
-                <label className="flex flex-col w-full">
-                  <p className="text-sm font-bold pb-2 uppercase tracking-wider text-gray-500">Full Name</p>
-                  <input name="name" required className="w-full rounded-xl border-gray-200 h-14 focus:border-primary focus:ring-primary placeholder:text-gray-300 px-4 outline-none border" placeholder="e.g. Jean Dupont" />
-                </label>
-                <label className="flex flex-col w-full">
-                  <p className="text-sm font-bold pb-2 uppercase tracking-wider text-gray-500">Email Address</p>
-                  <input name="email" type="email" required className="w-full rounded-xl border-gray-200 h-14 focus:border-primary focus:ring-primary placeholder:text-gray-300 px-4 outline-none border" placeholder="jean.dupont@email.com" />
-                </label>
-                <label className="flex flex-col w-full">
-                  <p className="text-sm font-bold pb-2 uppercase tracking-wider text-gray-500">Current Japanese Level</p>
-                  <select name="level" className="w-full rounded-xl border-gray-200 h-14 focus:border-primary focus:ring-primary px-4 outline-none border bg-white">
-                    <option value="">Select your current level</option>
-                    <option value="beginner">Beginner</option>
-                    <option value="intermediate">Intermediate</option>
-                    <option value="advanced">Advanced</option>
-                    <option value="jlpt-n5">JLPT N5</option>
-                    <option value="jlpt-n4">JLPT N4</option>
-                    <option value="jlpt-n3">JLPT N3</option>
-                  </select>
-                </label>
-
-                <label className="flex flex-col w-full">
-                  <p className="text-sm font-bold pb-2 uppercase tracking-wider text-gray-500">Preferred Format</p>
-                  <select name="format" className="w-full rounded-xl border-gray-200 h-14 focus:border-primary focus:ring-primary px-4 outline-none border bg-white">
-                    <option value="">Choose format</option>
-                    <option value="private-in-person">Private In-Person</option>
-                    <option value="small-group">Small Group</option>
-                    <option value="online">Online</option>
-                    <option value="not-sure">Not sure yet</option>
-                  </select>
-                </label>
-
-                <label className="flex flex-col w-full">
-                  <p className="text-sm font-bold pb-2 uppercase tracking-wider text-gray-500">Age Group</p>
-                  <select name="ageGroup" className="w-full rounded-xl border-gray-200 h-14 focus:border-primary focus:ring-primary px-4 outline-none border bg-white">
-                    <option value="">Select age group</option>
-                    <option value="kids">Kids</option>
-                    <option value="teens">Teens</option>
-                    <option value="adults">Adults</option>
-                    <option value="seniors">Seniors</option>
-                  </select>
-                </label>
-
-                <label className="flex flex-col w-full">
-                  <p className="text-sm font-bold pb-2 uppercase tracking-wider text-gray-500">Main Goal</p>
-                  <select name="goalType" className="w-full rounded-xl border-gray-200 h-14 focus:border-primary focus:ring-primary px-4 outline-none border bg-white">
-                    <option value="">Select your goal</option>
-                    <option value="general-japanese">General Japanese</option>
-                    <option value="jlpt-n5-n3">JLPT N5-N3 Preparation</option>
-                    <option value="conversation">Conversation Practice</option>
-                    <option value="kids-engaging">Kids/Teens Fun Learning</option>
-                  </select>
-                </label>
-
-                <label className="flex flex-col w-full">
-                  <p className="text-sm font-bold pb-2 uppercase tracking-wider text-gray-500">Your Message</p>
-                  <textarea name="message" required className="w-full rounded-xl border-gray-200 h-40 focus:border-primary focus:ring-primary placeholder:text-gray-300 p-4 outline-none border resize-none" placeholder="Tell me what you want to achieve in Japanese and where you prefer to study (home studio, cafe, public library, or online)."></textarea>
-                </label>
-
-                <button className="w-full h-16 bg-primary text-white font-black uppercase tracking-widest text-lg rounded-xl hover:bg-[#d62839] hover:shadow-xl transition-all flex items-center justify-center gap-3 mt-4 disabled:opacity-70" type="submit" disabled={isSubmitting}>
-                  <span className="material-symbols-outlined">send</span> {isSubmitting ? 'Sending...' : 'Send Inquiry'}
-                </button>
-                {statusMessage && <p className="text-sm font-bold text-slate-600">{statusMessage}</p>}
-              </form>
+              <iframe
+                data-tally-src="https://tally.so/embed/jaQa76?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+                loading="lazy"
+                width="100%"
+                height="849"
+                frameBorder="0"
+                marginHeight={0}
+                marginWidth={0}
+                title="Book Your Trial Lesson"
+              />
             </div>
           </div>
 

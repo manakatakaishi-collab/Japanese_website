@@ -159,17 +159,20 @@ const Journey: React.FC = () => {
 
       <div className="px-4 md:px-40 flex justify-center py-24">
         <div className="layout-content-container flex flex-col max-w-[1200px] flex-1">
-          <div className="bg-primary rounded-[3rem] p-10 md:p-20 flex flex-col md:flex-row items-center justify-between gap-12 text-white relative overflow-hidden shadow-2xl">
-            <div className="absolute -right-16 -bottom-16 opacity-10 select-none">
-              <span className="japanese-title text-[15rem] leading-none text-white">日本</span>
+          <div className="bg-primary rounded-[3rem] p-8 md:p-12 lg:p-14 flex flex-col items-center justify-center gap-7 text-white relative overflow-hidden shadow-2xl text-center">
+            <div className="absolute -top-10 left-4 md:left-8 opacity-10 select-none pointer-events-none">
+              <span className="japanese-title text-[7rem] md:text-[10rem] leading-none text-white">日</span>
             </div>
-            <div className="flex flex-col gap-6 text-center md:text-left relative z-10 max-w-lg">
+            <div className="absolute -bottom-12 right-4 md:right-8 opacity-10 select-none pointer-events-none">
+              <span className="japanese-title text-[7rem] md:text-[10rem] leading-none text-white">本</span>
+            </div>
+            <div className="flex flex-col gap-4 text-center relative z-10 max-w-2xl">
               <h2 className="text-4xl md:text-5xl font-black font-display tracking-tighter leading-none uppercase">Ready to start learning Japanese?</h2>
-              <p className="text-xl font-medium text-white/90">Book a trial lesson and we will build your study plan together.</p>
+              <p className="text-xl font-medium text-white/90 mx-auto">Book a trial lesson and we will build your study plan together.</p>
             </div>
             <Link
               href="/booking"
-              className="bg-white text-primary px-14 py-6 rounded-2xl font-black text-xl hover:bg-gray-50 transition-all shadow-2xl active:scale-95 relative z-10 uppercase tracking-widest"
+              className="bg-white text-primary px-12 py-5 rounded-2xl font-black text-lg hover:bg-gray-50 transition-all shadow-2xl active:scale-95 relative z-10 uppercase tracking-widest"
             >
               BOOK A TRIAL LESSON
             </Link>

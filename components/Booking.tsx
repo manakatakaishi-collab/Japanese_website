@@ -1,21 +1,58 @@
 'use client';
 
-import React from 'react';
+import React, { useCallback, useEffect } from 'react';
 import Script from 'next/script';
 
 const Booking: React.FC = () => {
-  const contactImage = 'https://images.unsplash.com/photo-1526657283335-33eeac1f2582?q=80&w=2070&auto=format&fit=crop';
+  const contactImage = '/images/contact-me-top-right.png';
+
+  const initTallyEmbeds = useCallback(() => {
+    // Mirrors Tally's recommended snippet:
+    // - set iframe.src = iframe.dataset.tallySrc for iframes missing src
+    // - call Tally.loadEmbeds() when available
+    try {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const w = window as any;
+      if (w?.Tally?.loadEmbeds) {
+        w.Tally.loadEmbeds();
+        return;
+      }
+
+      document
+        .querySelectorAll<HTMLIFrameElement>('iframe[data-tally-src]:not([src])')
+        .forEach((iframe) => {
+          iframe.src = iframe.dataset.tallySrc ?? '';
+        });
+    } catch {
+      // Non-fatal: if the embed init fails, the rest of the page should still render.
+    }
+  }, []);
+
+  useEffect(() => {
+    initTallyEmbeds();
+  }, [initTallyEmbeds]);
 
   return (
     <div className="bg-white">
-      <Script src="https://tally.so/widgets/embed.js" strategy="afterInteractive" />
+      <Script
+        src="https://tally.so/widgets/embed.js"
+        strategy="afterInteractive"
+        onLoad={initTallyEmbeds}
+        onError={initTallyEmbeds}
+      />
       <main className="max-w-[1200px] mx-auto px-6 lg:px-10 py-16 text-left">
         <div className="mb-20">
           <div className="flex flex-col lg:flex-row items-center gap-16">
             <div className="flex flex-col gap-6 lg:w-2/3">
-              <div className="flex items-center gap-3">
-                <div className="h-[2px] w-12 bg-primary"></div>
-                <span className="text-primary font-black tracking-[0.3em] text-xs uppercase">Contact Me</span>
+              <div className="space-y-2">
+                <div className="flex items-center gap-3">
+                  <div className="w-12" aria-hidden="true"></div>
+                  <span className="text-primary font-black tracking-[0.3em] text-xs uppercase">お問い合わせ</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="h-[2px] w-12 bg-primary"></div>
+                  <span className="text-primary font-black tracking-[0.3em] text-xs uppercase">Contact Me</span>
+                </div>
               </div>
               <h2 className="text-6xl md:text-8xl font-black leading-[0.95] tracking-tighter text-slate-900 uppercase">
                 Book Your <br />Trial <span className="text-primary">Lesson.</span>
@@ -28,14 +65,11 @@ const Booking: React.FC = () => {
             <div className="w-full lg:w-1/3 relative group">
               <div className="absolute -inset-4 bg-primary/5 rounded-[2rem] rotate-3 transition-transform group-hover:rotate-6 duration-500"></div>
 
-              <div className="relative z-10 aspect-square overflow-hidden rounded-[2rem] shadow-2xl border-4 border-white">
+              <div className="relative z-10 aspect-[2/3] overflow-hidden rounded-[2rem] shadow-2xl border-4 border-white">
                 <img
                   src={contactImage}
-                  alt="Japanese lesson inquiry"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2070&auto=format&fit=crop';
-                  }}
+                  alt="Contact me illustration"
+                  className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700"
                 />
               </div>
 
@@ -46,7 +80,7 @@ const Booking: React.FC = () => {
           </div>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-16">
+        <div className="flex flex-col lg:flex-row lg:items-stretch gap-16">
           <div className="w-full lg:w-2/3">
             <div className="bg-white p-10 rounded-2xl border border-gray-100 shadow-2xl shadow-gray-200/50">
               <h3 className="text-2xl font-bold mb-8 flex items-center gap-3 text-slate-900">
@@ -66,7 +100,7 @@ const Booking: React.FC = () => {
             </div>
           </div>
 
-          <div className="w-full lg:w-1/3 flex flex-col gap-8">
+          <div className="w-full lg:w-1/3 flex flex-col gap-8 h-full">
             <div className="bg-slate-50 p-10 rounded-2xl border border-slate-200">
               <div className="flex items-center gap-3 mb-6">
                 <span className="material-symbols-outlined text-primary">contact_support</span>
@@ -117,7 +151,7 @@ const Booking: React.FC = () => {
               </p>
             </div>
 
-            <div className="bg-slate-50 p-10 rounded-2xl border border-slate-200">
+            <div className="bg-slate-50 p-8 rounded-2xl border border-slate-200 mt-auto">
               <div className="flex items-center gap-3 mb-4">
                 <span className="material-symbols-outlined text-slate-400">place</span>
                 <h3 className="text-xl font-black text-slate-900 uppercase tracking-tight">Lesson Locations</h3>
@@ -125,6 +159,17 @@ const Booking: React.FC = () => {
               <p className="text-slate-500 text-sm font-medium leading-relaxed">
                 In-person lessons are available at my home studio, cafes, or public libraries in central Toulouse, plus online lessons.
               </p>
+              <div className="mt-6 rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
+                <iframe
+                  src="https://www.google.com/maps?q=Toulouse,+France&z=13&output=embed"
+                  width="100%"
+                  height="170"
+                  style={{ border: 0 }}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Map of lesson locations in Toulouse"
+                />
+              </div>
             </div>
           </div>
         </div>

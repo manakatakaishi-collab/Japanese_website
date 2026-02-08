@@ -1,0 +1,105 @@
+<svg width="1200" height="1200" viewBox="0 0 1200 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="120" y1="80" x2="1080" y2="1100" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F8F9FC"/>
+      <stop offset="1" stop-color="#EEF2F8"/>
+    </linearGradient>
+    <linearGradient id="desk" x1="300" y1="730" x2="940" y2="1040" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F3D4B4"/>
+      <stop offset="1" stop-color="#D7A17A"/>
+    </linearGradient>
+    <linearGradient id="screen" x1="698" y1="426" x2="885" y2="666" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1D2B52"/>
+      <stop offset="1" stop-color="#2B3B69"/>
+    </linearGradient>
+    <linearGradient id="kimono" x1="300" y1="500" x2="570" y2="810" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1B2348"/>
+      <stop offset="1" stop-color="#28366B"/>
+    </linearGradient>
+    <linearGradient id="hair" x1="384" y1="370" x2="486" y2="544" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1A1E2B"/>
+      <stop offset="1" stop-color="#363E58"/>
+    </linearGradient>
+    <filter id="shadow" x="168" y="142" width="884" height="916" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset dy="26"/>
+      <feGaussianBlur stdDeviation="24"/>
+      <feComposite in2="hardAlpha" operator="out"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.06 0 0 0 0 0.11 0 0 0 0 0.24 0 0 0 0.18 0"/>
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1_1"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1_1" result="shape"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="1200" rx="96" fill="url(#bg)"/>
+
+  <circle cx="226" cy="208" r="116" fill="#F7E6EC"/>
+  <circle cx="1008" cy="278" r="88" fill="#F2F5FB"/>
+  <path d="M159 877C230 809 311 790 396 790C463 790 531 807 594 848" stroke="#D0023A" stroke-opacity="0.25" stroke-width="12" stroke-linecap="round"/>
+
+  <g filter="url(#shadow)">
+    <rect x="216" y="190" width="768" height="800" rx="56" fill="#FFFDFB"/>
+  </g>
+
+  <rect x="258" y="740" width="680" height="200" rx="26" fill="url(#desk)"/>
+  <rect x="258" y="740" width="680" height="58" rx="20" fill="#EBC5A4" fill-opacity="0.75"/>
+
+  <ellipse cx="502" cy="730" rx="126" ry="24" fill="#C78A5E" fill-opacity="0.3"/>
+  <ellipse cx="770" cy="728" rx="152" ry="28" fill="#B78058" fill-opacity="0.24"/>
+
+  <path d="M658 412H886C898.15 412 908 421.85 908 434V675C908 687.15 898.15 697 886 697H658C645.85 697 636 687.15 636 675V434C636 421.85 645.85 412 658 412Z" fill="#11172D"/>
+  <rect x="646" y="424" width="244" height="254" rx="14" fill="url(#screen)"/>
+  <rect x="668" y="450" width="94" height="12" rx="6" fill="#FA5B7D"/>
+  <rect x="668" y="474" width="174" height="10" rx="5" fill="#EEF2FF" fill-opacity="0.9"/>
+  <rect x="668" y="494" width="136" height="10" rx="5" fill="#EEF2FF" fill-opacity="0.72"/>
+  <rect x="668" y="520" width="206" height="136" rx="12" fill="#F9FCFF" fill-opacity="0.95"/>
+  <circle cx="708" cy="560" r="18" fill="#D0023A"/>
+  <rect x="738" y="548" width="108" height="10" rx="5" fill="#1B254C" fill-opacity="0.85"/>
+  <rect x="738" y="570" width="86" height="10" rx="5" fill="#3B4E82" fill-opacity="0.7"/>
+  <rect x="738" y="596" width="122" height="10" rx="5" fill="#D5DFEE"/>
+
+  <path d="M560 694H922L942 744H540L560 694Z" fill="#9AA5BF"/>
+  <path d="M578 701H901L914 733H565L578 701Z" fill="#CBD3E3"/>
+  <rect x="686" y="731" width="126" height="8" rx="4" fill="#8E9AB8"/>
+
+  <path d="M300 612C300 535 348 472 419 447C483 425 559 442 615 497L620 504L582 554L574 547C532 503 486 487 448 500C413 512 390 545 390 591V760H300V612Z" fill="url(#kimono)"/>
+  <path d="M362 482C410 448 478 438 543 456L515 528C468 516 425 521 396 547L362 482Z" fill="#D0023A"/>
+  <path d="M395 607C439 565 501 552 562 566L548 626C501 614 458 621 424 653L395 607Z" fill="#25356A"/>
+
+  <ellipse cx="454" cy="548" rx="80" ry="96" fill="#FFD8C0"/>
+  <path d="M385 530C385 482 416 434 460 423C500 413 538 441 548 487C553 513 545 541 524 559C505 575 478 585 454 585C415 585 385 561 385 530Z" fill="#FFDFC9"/>
+  <path d="M390 524C392 464 433 409 486 399C531 391 574 419 590 468C602 505 597 549 568 574C544 595 509 604 476 600C429 595 388 565 390 524Z" fill="url(#hair)"/>
+  <path d="M522 566C499 576 475 576 454 568C456 587 468 602 487 610C504 617 526 612 541 598C542 587 536 574 522 566Z" fill="#F4B89A"/>
+  <circle cx="469" cy="544" r="6" fill="#2D2A38"/>
+  <circle cx="519" cy="545" r="6" fill="#2D2A38"/>
+  <path d="M488 570C496 576 506 576 514 570" stroke="#C46B67" stroke-width="5" stroke-linecap="round"/>
+
+  <path d="M440 756C487 724 548 717 602 734C646 747 689 774 706 810H390C398 786 416 768 440 756Z" fill="#1A2348"/>
+  <path d="M475 760C512 740 555 739 596 754C628 766 655 787 668 810H438C446 790 458 773 475 760Z" fill="#D0023A"/>
+
+  <ellipse cx="518" cy="785" rx="82" ry="26" fill="#FFE0C8"/>
+  <ellipse cx="772" cy="785" rx="104" ry="30" fill="#FFD8BE"/>
+
+  <path d="M438 784C450 772 466 763 483 760C528 752 574 772 600 804L610 816H408L438 784Z" fill="#FFCFAF"/>
+  <path d="M695 777C712 758 739 744 768 740C818 733 869 756 899 793L910 806H669L695 777Z" fill="#FFD6BB"/>
+  <path d="M679 806H918V832H652L679 806Z" fill="#E4AF8B"/>
+
+  <rect x="343" y="862" width="184" height="64" rx="16" fill="#FFF8EE" stroke="#F0D4BA" stroke-width="3"/>
+  <rect x="362" y="879" width="78" height="12" rx="6" fill="#D0023A"/>
+  <rect x="448" y="879" width="58" height="12" rx="6" fill="#2A3B6C" fill-opacity="0.85"/>
+  <rect x="362" y="899" width="144" height="10" rx="5" fill="#B4BFD3"/>
+
+  <path d="M916 884C916 849 944 820 979 820C1014 820 1042 849 1042 884C1042 919 1014 947 979 947C944 947 916 919 916 884Z" fill="#FFF"/>
+  <path d="M979 838L987 860H1011L992 874L999 898L979 884L959 898L966 874L947 860H971L979 838Z" fill="#D0023A"/>
+
+  <rect x="804" y="262" width="256" height="106" rx="28" fill="#FFFFFF" stroke="#E8ECF3" stroke-width="4"/>
+  <text x="836" y="309" fill="#111D43" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700">Book a trial</text>
+  <text x="836" y="343" fill="#D0023A" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700">lesson</text>
+
+  <circle cx="278" cy="306" r="24" fill="#FFDDE6"/>
+  <circle cx="278" cy="306" r="9" fill="#D0023A"/>
+  <circle cx="316" cy="268" r="14" fill="#E8EEF9"/>
+  <circle cx="964" cy="508" r="18" fill="#EDF3FF"/>
+  <circle cx="1000" cy="544" r="10" fill="#D0023A" fill-opacity="0.6"/>
+</svg>

@@ -51,7 +51,7 @@ const Lessons: React.FC = () => {
 
   return (
     <div className="bg-white">
-      <section className="relative overflow-hidden pt-12 pb-24 lg:pt-20 lg:pb-32 px-6 lg:px-20 zen-bg">
+      <section className="relative overflow-hidden pt-12 pb-24 lg:pt-20 lg:pb-32 px-8 md:px-12 lg:px-24 xl:px-28 zen-bg">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col lg:flex-row items-center gap-16">
             <div className="lg:w-1/2 space-y-10 text-left order-2 lg:order-1">
@@ -111,27 +111,47 @@ const Lessons: React.FC = () => {
         </div>
       </section>
 
-      <div className="px-6 md:px-12 lg:px-20 py-24 bg-white">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-16 items-start">
-          <div className="space-y-8 text-left">
-            <div className="flex items-center gap-3">
-              <div className="h-[2px] w-12 bg-primary"></div>
-              <span className="text-primary font-black tracking-[0.3em] text-xs uppercase">What You Get</span>
+      <div className="px-8 md:px-14 lg:px-24 xl:px-28 py-24 bg-white">
+        <div className="max-w-7xl mx-auto space-y-14 lg:space-y-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-stretch">
+            <div className="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 lg:p-10 text-left h-full flex flex-col justify-between">
+              <div className="space-y-8">
+                <div className="flex items-center gap-3">
+                  <div className="h-[2px] w-12 bg-primary"></div>
+                  <span className="text-primary font-black tracking-[0.3em] text-xs uppercase">What You Get</span>
+                </div>
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 leading-[0.95] tracking-tight uppercase font-display">
+                  Real Lessons, <br />Clear Structure
+                </h2>
+                <p className="text-slate-500 text-lg font-medium max-w-xl leading-relaxed">
+                  60-minute classes with a practical approach. Most learners notice clear progress in around 3 months,
+                  depending on their starting level and consistency.
+                </p>
+              </div>
             </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 leading-[0.95] tracking-tight uppercase font-display">
-              Real Lessons, <br />Clear Structure
-            </h2>
-            <p className="text-slate-500 text-lg font-medium max-w-xl leading-relaxed">
-              60-minute classes with a practical approach. Most learners notice clear progress in around 3 months,
-              depending on their starting level and consistency.
-            </p>
 
-            <div className="rounded-3xl border border-slate-200 bg-slate-50/70 p-6 sm:p-8">
-              <p className="text-[10px] font-black tracking-[0.25em] uppercase text-primary mb-4">Included</p>
-              <ul className="space-y-3">
+            <div className="rounded-3xl border border-slate-200 bg-slate-50/70 p-6 sm:p-8 lg:p-10 text-left h-full space-y-6">
+              <div className="space-y-6">
+                <div className="flex items-center gap-3">
+                  <div className="h-[2px] w-12 bg-primary"></div>
+                  <p className="text-primary font-black tracking-[0.3em] text-xs uppercase">What Is Included</p>
+                </div>
+                <h3 className="text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 leading-[1] tracking-tight uppercase font-display">
+                  Included in <br />Every Plan
+                </h3>
+              </div>
+
+              <ul className="space-y-4 pt-1">
                 {includedItems.map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-3 text-slate-600 text-sm font-medium leading-relaxed">
-                    <span className="material-symbols-outlined text-primary text-base mt-[2px]">check_circle</span>
+                  <li
+                    key={idx}
+                    className={`flex items-start gap-3 leading-relaxed ${
+                      idx < 2 ? 'text-slate-900 text-base sm:text-lg font-bold' : 'text-slate-600 text-base font-medium'
+                    }`}
+                  >
+                    <span className={`material-symbols-outlined text-primary mt-[2px] ${idx < 2 ? 'text-xl' : 'text-lg'}`}>
+                      check_circle
+                    </span>
                     <span>{item}</span>
                   </li>
                 ))}
@@ -139,32 +159,38 @@ const Lessons: React.FC = () => {
             </div>
           </div>
 
-          <div className="flex flex-col gap-8 text-left lg:pt-2">
+          <div className="space-y-6">
+            <div className="flex items-center gap-3">
+              <div className="h-[2px] w-12 bg-primary"></div>
+              <span className="text-primary font-black tracking-[0.3em] text-xs uppercase">Lesson Formats</span>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 text-left">
             {lessonFormats.map((format, idx) => (
               <div
                 key={idx}
-                className="group border border-slate-200 rounded-3xl p-6 sm:p-8 bg-white hover:border-primary/40 hover:shadow-md transition-all duration-300"
+                className="group border border-slate-200 rounded-3xl p-6 sm:p-8 bg-white hover:border-primary/40 hover:shadow-md transition-all duration-300 h-full"
               >
-                <div className="flex flex-col sm:flex-row sm:items-start gap-6">
+                <div className="flex flex-col sm:flex-row sm:items-start gap-6 h-full">
                   <div className="w-20 h-20 rounded-full border-2 border-slate-100 flex items-center justify-center transition-all duration-300 group-hover:border-primary group-hover:scale-110 bg-slate-50">
                     <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center text-primary transition-all duration-300 group-hover:bg-primary/5">
                       <span className="material-symbols-outlined text-3xl">{format.icon}</span>
                     </div>
                   </div>
 
-                  <div className="space-y-4 flex-1">
+                  <div className="space-y-4 flex-1 flex flex-col">
                     <div>
-                      <p className="text-[10px] font-black tracking-[0.25em] uppercase text-primary mb-2">{format.subtitle}</p>
-                      <h3 className="text-2xl font-black text-slate-900 tracking-tight transition-colors group-hover:text-primary">
+                      <p className="text-xs font-black tracking-[0.22em] uppercase text-primary mb-2">{format.subtitle}</p>
+                      <h3 className="text-[1.7rem] font-black text-slate-900 tracking-tight transition-colors group-hover:text-primary leading-tight">
                         {format.title}
                       </h3>
                     </div>
-                    <p className="text-slate-500 text-sm font-medium leading-relaxed max-w-xl">
+                    <p className="text-slate-500 text-base font-medium leading-relaxed max-w-xl">
                       {format.description}
                     </p>
-                    <ul className="space-y-2">
+                    <ul className="space-y-2 pt-1">
                       {format.pricing.map((line, lineIdx) => (
-                        <li key={lineIdx} className="text-sm text-slate-700 font-semibold flex items-start gap-2">
+                        <li key={lineIdx} className="text-base text-slate-700 font-semibold flex items-start gap-2">
                           <span className="text-primary leading-5">-</span>
                           <span>{line}</span>
                         </li>
@@ -172,7 +198,7 @@ const Lessons: React.FC = () => {
                     </ul>
                     <Link
                       href="/booking"
-                      className="inline-flex items-center gap-2 text-sm font-black text-primary uppercase tracking-widest pt-2 hover:gap-4 transition-all"
+                      className="inline-flex items-center gap-2 text-base font-black text-primary uppercase tracking-widest pt-2 hover:gap-4 transition-all mt-auto"
                     >
                       Check Availability <span className="material-symbols-outlined text-sm">arrow_forward</span>
                     </Link>
@@ -181,10 +207,11 @@ const Lessons: React.FC = () => {
               </div>
             ))}
           </div>
+          </div>
         </div>
       </div>
 
-      <div className="px-8 md:px-24 lg:px-40 py-32 bg-[#fffcf9] border-t border-orange-50 relative overflow-hidden">
+      <div className="px-8 md:px-20 lg:px-28 xl:px-36 py-32 bg-[#fffcf9] border-t border-orange-50 relative overflow-hidden">
         <div className="absolute bottom-0 right-0 p-10 opacity-[0.02] select-none pointer-events-none">
           <span className="japanese-title text-[35rem] leading-none text-slate-900">答</span>
         </div>
@@ -262,28 +289,29 @@ const Lessons: React.FC = () => {
         </div>
       </div>
 
-      <div className="px-8 md:px-24 lg:px-40 py-24 bg-white">
+      <div className="px-8 md:px-20 lg:px-28 xl:px-36 py-24 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="bg-primary rounded-[4rem] p-16 md:p-32 relative overflow-hidden shadow-2xl">
-            <div className="absolute inset-0 opacity-[0.05] pointer-events-none">
-              <div className="grid grid-cols-6 h-full">
-                {[...Array(6)].map((_, i) => (
-                  <div key={i} className="border-r border-white h-full"></div>
-                ))}
-              </div>
+          <div className="bg-primary rounded-[3rem] p-8 md:p-12 lg:p-14 flex flex-col items-center justify-center gap-7 text-white relative overflow-hidden shadow-2xl text-center">
+            <div className="absolute -top-10 left-4 md:left-8 opacity-10 select-none pointer-events-none">
+              <span className="japanese-title text-[7rem] md:text-[10rem] leading-none text-white">学</span>
             </div>
-            <div className="relative z-10 flex flex-col items-center text-center gap-10">
-              <h2 className="text-white text-4xl md:text-7xl font-black uppercase tracking-tight font-display max-w-3xl leading-[0.95]">
+            <div className="absolute -bottom-12 right-4 md:right-8 opacity-10 select-none pointer-events-none">
+              <span className="japanese-title text-[7rem] md:text-[10rem] leading-none text-white">ぶ</span>
+            </div>
+            <div className="flex flex-col gap-4 text-center relative z-10 max-w-2xl">
+              <h2 className="text-white text-4xl md:text-5xl font-black uppercase tracking-tighter font-display leading-none">
                 Ready to start <br />your Japanese lessons?
               </h2>
-              <p className="text-white/80 text-xl font-medium max-w-xl">Book a trial lesson and get a plan based on your real goals.</p>
-              <Link
-                href="/booking"
-                className="bg-white text-primary px-16 py-7 rounded-2xl font-black text-sm uppercase tracking-[0.25em] hover:bg-slate-900 hover:text-white transition-all shadow-2xl active:scale-95"
-              >
-                Book Your Trial Lesson
-              </Link>
+              <p className="text-xl font-medium text-white/90 max-w-xl mx-auto">
+                Book a trial lesson and get a plan based on your real goals.
+              </p>
             </div>
+            <Link
+              href="/booking"
+              className="bg-white text-primary px-12 py-5 rounded-2xl font-black text-lg uppercase tracking-widest hover:bg-slate-900 hover:text-white transition-all shadow-2xl active:scale-95 relative z-10 whitespace-nowrap"
+            >
+              Book Your Trial Lesson
+            </Link>
           </div>
         </div>
       </div>

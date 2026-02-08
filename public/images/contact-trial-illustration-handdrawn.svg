@@ -1,0 +1,116 @@
+<svg width="1200" height="1200" viewBox="0 0 1200 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g_sky" x1="220" y1="140" x2="980" y2="980" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#F6F7FB"/>
+    </linearGradient>
+    <linearGradient id="g_screen" x1="660" y1="430" x2="920" y2="720" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#18264B"/>
+      <stop offset="1" stop-color="#243A78"/>
+    </linearGradient>
+    <linearGradient id="g_desk" x1="250" y1="780" x2="980" y2="1040" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F1D7BF"/>
+      <stop offset="1" stop-color="#D9A47E"/>
+    </linearGradient>
+    <filter id="shadow_soft" x="-30%" y="-30%" width="160%" height="160%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#0F1B3D" flood-opacity="0.18" />
+    </filter>
+    <filter id="paper" x="-30%" y="-30%" width="160%" height="160%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" result="noise" />
+      <feColorMatrix
+        in="noise"
+        type="matrix"
+        values="0 0 0 0 0.85  0 0 0 0 0.86  0 0 0 0 0.90  0 0 0 0.20 0"
+        result="tint"
+      />
+      <feBlend in="SourceGraphic" in2="tint" mode="multiply" />
+    </filter>
+  </defs>
+
+  <!-- Transparent outside; designed to sit in a rounded image frame -->
+  <g filter="url(#paper)">
+    <!-- Soft background blobs -->
+    <path
+      d="M248 168C180 224 162 320 188 388C214 456 274 496 340 488C414 479 458 407 462 342C467 262 402 120 248 168Z"
+      fill="#F7E6EC"
+    />
+    <path
+      d="M964 206C1036 244 1068 312 1056 378C1043 450 974 486 912 466C846 445 800 380 818 312C838 236 904 182 964 206Z"
+      fill="#EAF1FF"
+    />
+    <path d="M195 900C260 830 340 802 420 812C498 822 562 862 602 928" stroke="#C1121F" stroke-opacity="0.22" stroke-width="12" stroke-linecap="round" />
+
+    <!-- Main card -->
+    <g filter="url(#shadow_soft)">
+      <rect x="210" y="180" width="780" height="840" rx="72" fill="url(#g_sky)" />
+      <rect x="210" y="180" width="780" height="840" rx="72" stroke="#FFFFFF" stroke-width="10" />
+    </g>
+
+    <!-- Desk -->
+    <rect x="270" y="780" width="660" height="210" rx="34" fill="url(#g_desk)" />
+    <path d="M270 820H930" stroke="#E7C1A5" stroke-width="16" stroke-linecap="round" opacity="0.65" />
+
+    <!-- Laptop -->
+    <g>
+      <rect x="620" y="420" width="300" height="300" rx="26" fill="#0F1630" />
+      <rect x="640" y="440" width="260" height="260" rx="18" fill="url(#g_screen)" />
+      <rect x="660" y="466" width="108" height="14" rx="7" fill="#C1121F" opacity="0.85" />
+      <rect x="660" y="492" width="190" height="12" rx="6" fill="#EDF2FF" opacity="0.85" />
+      <rect x="660" y="514" width="150" height="12" rx="6" fill="#EDF2FF" opacity="0.7" />
+
+      <!-- Video call tiles -->
+      <rect x="660" y="544" width="240" height="140" rx="16" fill="#F8FBFF" opacity="0.95" />
+      <circle cx="702" cy="594" r="18" fill="#C1121F" />
+      <circle cx="790" cy="600" r="22" fill="#1A2550" opacity="0.9" />
+      <path d="M770 628C780 616 802 616 812 628" stroke="#EAF1FF" stroke-width="6" stroke-linecap="round" opacity="0.8" />
+      <rect x="730" y="578" width="130" height="10" rx="5" fill="#18264B" opacity="0.85" />
+      <rect x="730" y="602" width="98" height="10" rx="5" fill="#344A8E" opacity="0.72" />
+      <rect x="730" y="628" width="142" height="10" rx="5" fill="#D5DEEF" />
+
+      <!-- Laptop base -->
+      <path d="M594 714H946L970 768H570L594 714Z" fill="#A8B2C8" />
+      <path d="M612 722H926L942 756H596L612 722Z" fill="#D7DEED" />
+      <rect x="704" y="756" width="132" height="10" rx="5" fill="#8D98B6" opacity="0.95" />
+    </g>
+
+    <!-- Friendly teacher figure (simple, hand-drawn vibe) -->
+    <g>
+      <path d="M300 636C300 546 356 476 438 448C516 421 600 451 652 520L602 572C566 521 510 502 462 520C417 538 394 584 394 632V786H300V636Z" fill="#17224A" />
+      <path d="M370 496C418 460 488 448 554 468L528 538C478 524 432 532 406 564L370 496Z" fill="#C1121F" />
+      <path d="M408 624C452 582 516 570 578 588L564 650C516 636 470 646 438 680L408 624Z" fill="#243A78" opacity="0.95" />
+
+      <ellipse cx="464" cy="560" rx="84" ry="102" fill="#FFE1CD" />
+      <path d="M400 540C404 476 450 420 510 410C560 402 608 432 626 484C640 526 634 580 600 608C572 632 530 640 492 634C438 628 396 588 400 540Z" fill="#1D1F2A" opacity="0.85" />
+      <circle cx="476" cy="560" r="7" fill="#1B1B22" />
+      <circle cx="530" cy="560" r="7" fill="#1B1B22" />
+      <path d="M494 590C506 600 520 600 532 590" stroke="#C46B67" stroke-width="6" stroke-linecap="round" />
+      <path d="M524 580C504 592 482 592 464 584C468 606 484 624 508 632C528 638 552 630 566 612C566 598 552 586 524 580Z" fill="#F4B89A" opacity="0.85" />
+    </g>
+
+    <!-- Study items -->
+    <g>
+      <!-- Open book -->
+      <path d="M320 870C378 836 448 836 506 870V942C448 908 378 908 320 942V870Z" fill="#FFF7EF" stroke="#E8D0BF" stroke-width="4" />
+      <path d="M506 870C564 836 634 836 692 870V942C634 908 564 908 506 942V870Z" fill="#FFF7EF" stroke="#E8D0BF" stroke-width="4" />
+      <path d="M506 868V944" stroke="#E8D0BF" stroke-width="4" stroke-linecap="round" />
+      <path d="M352 892H474" stroke="#B9C4DA" stroke-width="8" stroke-linecap="round" />
+      <path d="M352 914H448" stroke="#B9C4DA" stroke-width="8" stroke-linecap="round" opacity="0.9" />
+      <path d="M538 892H660" stroke="#B9C4DA" stroke-width="8" stroke-linecap="round" />
+      <path d="M538 914H622" stroke="#B9C4DA" stroke-width="8" stroke-linecap="round" opacity="0.9" />
+      <path d="M486 860H526V928C526 940 516 950 506 950C496 950 486 940 486 928V860Z" fill="#C1121F" opacity="0.9" />
+
+      <!-- Pencil -->
+      <path d="M732 872L840 826L858 862L750 908L732 872Z" fill="#C1121F" opacity="0.9" />
+      <path d="M840 826L900 796L918 832L858 862L840 826Z" fill="#FFD1B4" />
+      <path d="M900 796L928 782L946 818L918 832L900 796Z" fill="#1A2550" opacity="0.85" />
+    </g>
+
+    <!-- Small sakura-like petals -->
+    <g opacity="0.9">
+      <path d="M914 256C928 242 952 242 964 258C976 274 966 298 944 300C922 302 900 270 914 256Z" fill="#FFD6E1" />
+      <path d="M280 282C292 270 312 270 322 284C332 298 324 318 306 320C288 322 268 294 280 282Z" fill="#FFD6E1" />
+      <path d="M964 526C974 516 990 516 998 528C1006 540 1000 556 986 558C972 560 954 536 964 526Z" fill="#FFD6E1" />
+    </g>
+  </g>
+</svg>
+

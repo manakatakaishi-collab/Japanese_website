@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { withBasePath } from '@/lib/base-path';
+import PageHero from '@/components/PageHero';
 
 const Lessons: React.FC = () => {
   const lessonFormats = [
@@ -51,68 +52,26 @@ const Lessons: React.FC = () => {
 
   return (
     <div className="bg-white">
-      <section className="relative overflow-hidden pt-12 pb-24 lg:pt-20 lg:pb-32 px-8 md:px-12 lg:px-24 xl:px-28 zen-bg">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col lg:flex-row items-center gap-16">
-            <div className="lg:w-1/2 space-y-10 text-left order-2 lg:order-1">
-              <div className="space-y-6">
-                <div className="space-y-2">
-                  <div className="flex items-center gap-3">
-                    <div className="w-12" aria-hidden="true"></div>
-                    <span className="text-primary font-black tracking-[0.3em] text-xs uppercase">レッスンと料金</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="h-[2px] w-12 bg-primary"></div>
-                    <span className="text-primary font-black tracking-[0.3em] text-xs uppercase">Lessons & Fees</span>
-                  </div>
-                </div>
-                <h1 className="text-6xl lg:text-8xl font-black leading-[0.95] tracking-tighter text-slate-900 uppercase">
-                  Japanese Lessons <br />in <span className="text-primary">Toulouse.</span>
-                </h1>
-                <p className="text-slate-600 text-xl font-medium leading-relaxed max-w-lg">
-                  Beginner to advanced lessons, JLPT N5-N3 preparation, and engaging classes for kids and teens.
-                  All lessons are taught in English.
-                </p>
-              </div>
-              <div className="flex flex-wrap gap-5">
-                <Link
-                  href="/booking"
-                  className="bg-primary text-white px-10 py-5 text-sm font-black uppercase tracking-widest hover:bg-black transition-all shadow-xl shadow-primary/20"
-                >
-                  Book a Trial Lesson
-                </Link>
-                <Link
-                  href="/booking"
-                  className="bg-white border-2 border-slate-200 text-slate-900 px-10 py-5 text-sm font-black uppercase tracking-widest hover:border-primary hover:text-primary transition-all"
-                >
-                  Ask a Question
-                </Link>
-              </div>
-            </div>
+      <PageHero
+        eyebrowJa="レッスンと料金"
+        eyebrowEn="Lessons & Fees"
+        title={
+          <>
+            Japanese Lessons in <span className="text-primary">Toulouse.</span>
+          </>
+        }
+        description="Beginner to advanced lessons, JLPT N5-N3 preparation, and engaging classes for kids and teens. All lessons are taught in English."
+        imageSrc={heroImage}
+        imageAlt="Japanese lesson materials"
+        imageSide="right"
+        ctas={[
+          { href: '/booking', label: 'Book a Trial Lesson', variant: 'primary' },
+          { href: '/booking', label: 'Ask a Question', variant: 'secondary' },
+        ]}
+      />
 
-            <div className="lg:w-1/2 relative order-1 lg:order-2">
-              <div className="relative z-20">
-                <div className="p-4 border-[3px] border-dashed border-[#1E90FF] rounded-[2rem] relative">
-                  <div className="absolute -top-10 -right-6 w-32 h-44 bg-[#D64F73] rounded-full opacity-90 z-0"></div>
-                  <div className="absolute -bottom-16 -left-16 w-56 h-56 bg-[#F9A86E] rounded-full opacity-90 z-0"></div>
-                  <div className="absolute -bottom-4 -right-4 w-12 h-16 bg-[#706FD3] rounded-full opacity-90 z-30"></div>
-
-                  <div className="relative z-10 w-full aspect-[4/3] overflow-hidden bg-slate-100 rounded-[1.5rem] shadow-2xl">
-                    <img
-                      src={heroImage}
-                      alt="Japanese lesson materials"
-                      className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div className="px-8 md:px-14 lg:px-24 xl:px-28 py-24 bg-white">
-        <div className="max-w-7xl mx-auto space-y-14 lg:space-y-16">
+      <div className="site-x section-y bg-white">
+        <div className="site-content space-y-14 lg:space-y-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-stretch">
             <div className="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 lg:p-10 text-left h-full flex flex-col justify-between">
               <div className="space-y-8">
@@ -211,11 +170,11 @@ const Lessons: React.FC = () => {
         </div>
       </div>
 
-      <div className="px-8 md:px-20 lg:px-28 xl:px-36 py-32 bg-[#fffcf9] border-t border-orange-50 relative overflow-hidden">
+      <div className="site-x section-y bg-[#fffcf9] border-t border-orange-50 relative overflow-hidden">
         <div className="absolute bottom-0 right-0 p-10 opacity-[0.02] select-none pointer-events-none">
           <span className="japanese-title text-[35rem] leading-none text-slate-900">答</span>
         </div>
-        <div className="max-w-7xl mx-auto">
+        <div className="site-content">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
             <div className="space-y-12">
               <div className="space-y-8">
@@ -289,8 +248,8 @@ const Lessons: React.FC = () => {
         </div>
       </div>
 
-      <div className="px-8 md:px-20 lg:px-28 xl:px-36 py-24 bg-white">
-        <div className="max-w-7xl mx-auto">
+      <div className="site-x section-y bg-white">
+        <div className="site-content">
           <div className="bg-primary rounded-[3rem] p-8 md:p-12 lg:p-14 flex flex-col items-center justify-center gap-7 text-white relative overflow-hidden shadow-2xl text-center">
             <div className="absolute -top-10 left-4 md:left-8 opacity-10 select-none pointer-events-none">
               <span className="japanese-title text-[7rem] md:text-[10rem] leading-none text-white">学</span>

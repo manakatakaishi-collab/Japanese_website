@@ -37,3 +37,17 @@ body {
 .japanese-title {
   font-family: var(--font-noto-serif-jp), serif;
 }
+
+.site-x {
+  padding-inline: clamp(2rem, 5vw, 6rem);
+}
+
+.section-y {
+  padding-block: clamp(4.5rem, 8vw, 6.5rem);
+}
+
+.site-content {
+  width: 100%;
+  max-width: 980px;
+  margin-inline: auto;
+}

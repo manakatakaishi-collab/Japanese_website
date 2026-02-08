@@ -23,7 +23,7 @@ const Navbar: React.FC = () => {
 
   return (
     <header className={`sticky top-0 z-[100] transition-all duration-300 border-b ${isScrolled ? 'bg-white/95 backdrop-blur-md border-gray-100 py-3 shadow-sm' : 'bg-white border-gray-50 py-3'}`}>
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between">
+      <div className="site-content site-x flex items-center justify-between">
         <Link href="/" className="flex items-center gap-4 group text-left">
           {/* Custom Dual-Flag Logo */}
           <div className="relative flex items-center w-14 h-10 group-hover:scale-105 transition-transform duration-300">

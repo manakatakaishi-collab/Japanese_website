@@ -3,8 +3,8 @@ import React from 'react';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#1a1a1a] text-white py-20 px-6 lg:px-20 border-t-8 border-primary text-left">
-      <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+    <footer className="bg-[#1a1a1a] text-white section-y site-x border-t-8 border-primary text-left">
+      <div className="site-content grid grid-cols-1 md:grid-cols-4 gap-12">
         <div className="col-span-1 md:col-span-2">
           <div className="flex items-center gap-2 mb-6">
             <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
@@ -57,7 +57,7 @@ const Footer: React.FC = () => {
           </ul>
         </div>
       </div>
-      <div className="max-w-[1200px] mx-auto mt-20 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 text-gray-500 text-sm">
+      <div className="site-content mt-20 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 text-gray-500 text-sm">
         <p>© 2024 Manaka Japanese. Learning Japanese made simple.</p>
         <div className="flex gap-10">
           <button className="hover:text-white transition-colors">Privacy Policy</button>

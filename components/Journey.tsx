@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { withBasePath } from '@/lib/base-path';
+import PageHero from '@/components/PageHero';
 
 const Journey: React.FC = () => {
   const teachingApproach = [
@@ -28,48 +29,26 @@ const Journey: React.FC = () => {
 
   return (
     <div className="bg-white">
-      <div className="px-4 md:px-40 flex justify-center py-16 bg-gradient-to-b from-accent-soft/40 to-white">
-        <div className="layout-content-container flex flex-col max-w-[1200px] flex-1">
-          <div className="flex flex-col gap-10 lg:flex-row lg:items-center">
-            <div
-              className="w-full bg-center bg-no-repeat aspect-[4/5] bg-cover rounded-2xl shadow-2xl lg:w-1/2 border-8 border-white"
-              style={{ backgroundImage: `url('${withBasePath('/images/about-manaka.jpg')}')` }}
-            ></div>
-            <div className="flex flex-col gap-8 lg:w-1/2 lg:pl-16 text-left">
-              <div className="flex flex-col gap-4">
-                <div className="space-y-2">
-                  <div className="flex items-center gap-3">
-                    <div className="w-12" aria-hidden="true"></div>
-                    <span className="text-primary font-black tracking-[0.3em] text-xs uppercase">私について</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="h-[2px] w-12 bg-primary"></div>
-                    <span className="text-primary font-black tracking-[0.3em] text-xs uppercase">About Me</span>
-                  </div>
-                </div>
-                <h1 className="text-6xl md:text-8xl font-black leading-[0.95] tracking-tighter text-slate-900 uppercase">
-                  About <br />Me<span className="text-primary">.</span>
-                </h1>
-                <p className="text-gray-600 text-lg font-medium leading-relaxed mt-4">
-                  Hi, I&apos;m Manaka. From Tokyo to Exeter and now Toulouse, I teach Japanese in English through practical,
-                  personalized lessons for kids, teens, and adults.
-                </p>
-              </div>
-              <div className="flex flex-wrap gap-4">
-                <div className="flex items-center gap-2 bg-white text-gray-800 px-5 py-3 rounded-xl text-sm font-extrabold shadow-sm border border-gray-100">
-                  <span className="material-symbols-outlined text-primary">location_on</span> Toulouse, FR
-                </div>
-                <div className="flex items-center gap-2 bg-white text-gray-800 px-5 py-3 rounded-xl text-sm font-extrabold shadow-sm border border-gray-100">
-                  <span className="material-symbols-outlined text-primary">school</span> University of Exeter
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <PageHero
+        eyebrowJa="私について"
+        eyebrowEn="About Me"
+        title={
+          <>
+            About Me<span className="text-primary">.</span>
+          </>
+        }
+        description="Hi, I'm Manaka. From Tokyo to Exeter and now Toulouse, I teach Japanese in English through practical, personalized lessons for kids, teens, and adults."
+        imageSrc={withBasePath('/images/about-manaka.jpg')}
+        imageAlt="Manaka portrait"
+        imageSide="left"
+        ctas={[
+          { href: '/booking', label: 'Book a Trial Lesson', variant: 'primary' },
+          { href: '/lessons', label: 'View Lessons & Fees', variant: 'secondary' },
+        ]}
+      />
 
-      <div className="px-4 md:px-40 flex justify-center mt-20">
-        <div className="layout-content-container flex flex-col max-w-[1200px] flex-1">
+      <div className="site-x section-y flex justify-center">
+        <div className="layout-content-container site-content flex flex-col">
           <div className="flex flex-col gap-4 px-4 pb-12 text-center">
             <h2 className="text-slate-900 text-4xl font-black leading-tight tracking-tighter uppercase font-display">My Global Journey</h2>
             <div className="w-24 h-2 bg-primary mx-auto rounded-full"></div>
@@ -131,8 +110,8 @@ const Journey: React.FC = () => {
         </div>
       </div>
 
-      <div className="px-4 md:px-40 flex justify-center py-24 bg-slate-50 mt-20">
-        <div className="layout-content-container flex flex-col max-w-[1200px] flex-1">
+      <div className="site-x section-y flex justify-center bg-slate-50">
+        <div className="layout-content-container site-content flex flex-col">
           <div className="flex flex-col gap-4 px-4 pb-16 text-center">
             <div className="flex items-center justify-center gap-4 mb-2">
               <div className="h-[1px] w-20 bg-primary/20"></div>
@@ -157,8 +136,8 @@ const Journey: React.FC = () => {
         </div>
       </div>
 
-      <div className="px-4 md:px-40 flex justify-center py-24">
-        <div className="layout-content-container flex flex-col max-w-[1200px] flex-1">
+      <div className="site-x section-y flex justify-center">
+        <div className="layout-content-container site-content flex flex-col">
           <div className="bg-primary rounded-[3rem] p-8 md:p-12 lg:p-14 flex flex-col items-center justify-center gap-7 text-white relative overflow-hidden shadow-2xl text-center">
             <div className="absolute -top-10 left-4 md:left-8 opacity-10 select-none pointer-events-none">
               <span className="japanese-title text-[7rem] md:text-[10rem] leading-none text-white">日</span>

@@ -3,6 +3,7 @@
 import React, { useCallback, useEffect } from 'react';
 import Script from 'next/script';
 import { withBasePath } from '@/lib/base-path';
+import PageHero from '@/components/PageHero';
 
 const Booking: React.FC = () => {
   const contactImage = withBasePath('/images/booking-top-right.png');
@@ -42,49 +43,29 @@ const Booking: React.FC = () => {
         onLoad={initTallyEmbeds}
         onError={initTallyEmbeds}
       />
-      <main className="max-w-[1200px] mx-auto px-6 lg:px-10 py-16 text-left">
-        <div className="mb-20">
-          <div className="flex flex-col lg:flex-row items-center gap-16">
-            <div className="flex flex-col gap-6 lg:w-2/3">
-              <div className="space-y-2">
-                <div className="flex items-center gap-3">
-                  <div className="w-12" aria-hidden="true"></div>
-                  <span className="text-primary font-black tracking-[0.3em] text-xs uppercase">お問い合わせ</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="h-[2px] w-12 bg-primary"></div>
-                  <span className="text-primary font-black tracking-[0.3em] text-xs uppercase">Contact Me</span>
-                </div>
-              </div>
-              <h2 className="text-6xl md:text-8xl font-black leading-[0.95] tracking-tighter text-slate-900 uppercase">
-                Book Your <br />Trial <span className="text-primary">Lesson.</span>
-              </h2>
-              <p className="text-slate-600 text-xl font-medium leading-relaxed max-w-2xl">
-                Tell me your level, goals, and preferred format. I will help you choose a practical lesson plan that fits your needs.
-              </p>
-            </div>
+      <PageHero
+        eyebrowJa="お問い合わせ"
+        eyebrowEn="Contact Me"
+        title={
+          <>
+            Book Your Trial <span className="text-primary">Lesson.</span>
+          </>
+        }
+        description="Tell me your level, goals, and preferred format. I will help you choose a practical lesson plan that fits your needs."
+        imageSrc={contactImage}
+        imageAlt={contactImageAlt}
+        imageSide="left"
+        ctas={[
+          { href: '/booking#inquiry-form', label: 'Send Inquiry', variant: 'primary' },
+          { href: '/lessons', label: 'View Lessons & Fees', variant: 'secondary' },
+        ]}
+      />
 
-            <div className="w-full lg:w-1/3 relative group">
-              <div className="absolute -inset-4 bg-primary/5 rounded-[2rem] rotate-3 transition-transform group-hover:rotate-6 duration-500"></div>
-
-              <div className="relative z-10 aspect-square overflow-hidden rounded-[2rem] shadow-2xl border-4 border-white">
-                <img
-                  src={contactImage}
-                  alt={contactImageAlt}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-              </div>
-
-              <div className="absolute -bottom-6 -right-6 bg-white p-4 shadow-xl rounded-2xl border border-gray-100 hidden md:block z-20">
-                <p className="text-primary font-black uppercase text-[10px] tracking-widest">Trial Lesson</p>
-              </div>
-            </div>
-          </div>
-        </div>
+      <main className="site-content site-x section-y text-left">
 
         <div className="flex flex-col lg:flex-row lg:items-stretch gap-16">
           <div className="w-full lg:w-2/3">
-            <div className="bg-white p-10 rounded-2xl border border-gray-100 shadow-2xl shadow-gray-200/50">
+            <div id="inquiry-form" className="bg-white p-10 rounded-2xl border border-gray-100 shadow-2xl shadow-gray-200/50">
               <h3 className="text-2xl font-bold mb-8 flex items-center gap-3 text-slate-900">
                 <span className="w-2 h-8 bg-primary rounded-full"></span>
                 Inquiry Form

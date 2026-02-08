@@ -36,7 +36,10 @@ const PageHero: React.FC<PageHeroProps> = ({
     <section className="relative overflow-hidden site-x section-y zen-bg">
       <div className="site-content">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-          <div className={`w-full lg:w-1/2 space-y-8 text-left order-1 ${textOrderClass}`}>
+          <div
+            className={`w-full lg:w-1/2 space-y-8 text-left order-1 ${textOrderClass}`}
+            data-reveal
+          >
             <div className="space-y-5">
               <div className="space-y-1">
                 {eyebrowJa ? (
@@ -63,8 +66,8 @@ const PageHero: React.FC<PageHeroProps> = ({
                   href={cta.href}
                   className={
                     cta.variant === 'secondary'
-                      ? 'bg-white border-2 border-slate-200 text-slate-900 px-8 lg:px-9 py-4 lg:py-5 text-sm font-black uppercase tracking-widest rounded-none hover:border-primary hover:text-primary transition-all text-center'
-                      : 'bg-primary text-white px-8 lg:px-9 py-4 lg:py-5 text-sm font-black uppercase tracking-widest rounded-none hover:bg-black transition-all shadow-xl shadow-primary/20 text-center'
+                      ? 'btn-lift bg-white border-2 border-slate-200 text-slate-900 px-8 lg:px-9 py-4 lg:py-5 text-sm font-black uppercase tracking-widest rounded-none hover:border-primary hover:text-primary transition-all text-center'
+                      : 'btn-lift bg-primary text-white px-8 lg:px-9 py-4 lg:py-5 text-sm font-black uppercase tracking-widest rounded-none hover:bg-black transition-all shadow-xl shadow-primary/20 text-center'
                   }
                 >
                   {cta.label}
@@ -73,7 +76,11 @@ const PageHero: React.FC<PageHeroProps> = ({
             </div>
           </div>
 
-          <div className={`w-full lg:w-1/2 order-2 ${imageOrderClass}`}>
+          <div
+            className={`w-full lg:w-1/2 order-2 ${imageOrderClass}`}
+            data-reveal
+            style={{ '--reveal-delay': '120ms' } as React.CSSProperties}
+          >
             <div className={`relative w-full max-w-[420px] mx-auto lg:mx-0 ${imageAlignClass}`}>
               <div className="relative aspect-[4/5] border-[12px] border-white shadow-2xl overflow-hidden bg-slate-100 rounded-lg">
                 <img src={imageSrc} alt={imageAlt} className="w-full h-full object-cover object-center" />

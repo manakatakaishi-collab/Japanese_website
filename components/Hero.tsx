@@ -1,8 +1,11 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 import { withBasePath } from '@/lib/base-path';
 import PageHero from '@/components/PageHero';
 
 const Hero: React.FC = () => {
+  const [activeStepIndex, setActiveStepIndex] = useState(0);
   const manakaHeroImage = withBasePath('/images/profile-manaka.jpg');
 
   const formats = [
@@ -66,9 +69,9 @@ const Hero: React.FC = () => {
         ]}
       />
 
-      <section className="section-y site-x bg-slate-50">
+      <section className="section-y site-x bg-slate-50" data-reveal>
         <div className="site-content">
-          <div className="flex flex-col items-center text-center mb-20 space-y-4">
+          <div className="flex flex-col items-center text-center mb-20 space-y-4" data-reveal>
             <h2 className="text-4xl lg:text-5xl font-black text-slate-900 uppercase tracking-tight">Lesson Formats</h2>
             <p className="text-slate-500 max-w-2xl text-lg">Choose the format that matches your goals, level, and schedule.</p>
           </div>
@@ -77,6 +80,8 @@ const Hero: React.FC = () => {
               <article
                 key={i}
                 className="group flex flex-col bg-white overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 rounded-lg border border-slate-100"
+                data-reveal
+                style={{ '--reveal-delay': `${i * 80}ms` } as React.CSSProperties}
               >
                 <div className="h-52 overflow-hidden border-b border-slate-100">
                   <img
@@ -100,17 +105,23 @@ const Hero: React.FC = () => {
         </div>
       </section>
 
-      <section className="section-y site-x bg-white border-y border-slate-100">
+      <section className="section-y site-x bg-white border-y border-slate-100" data-reveal>
         <div className="site-content">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="text-left">
+            <div className="text-left" data-reveal>
               <h2 className="text-4xl lg:text-5xl font-black mb-8 text-slate-900 uppercase tracking-tight leading-none">
                 How Lessons <br /><span className="text-primary">Work</span>
               </h2>
               <p className="text-slate-500 text-lg mb-12">A clear structure designed around your level, your goals, and consistent progress.</p>
-              <div className="space-y-6">
+              <div className="space-y-6" onMouseLeave={() => setActiveStepIndex(0)}>
                 {howItWorks.map((step, index) => (
-                  <div key={index} className="flex items-center gap-6 bg-white p-6 shadow-sm border-l-4 border-slate-100 hover:border-primary transition-all duration-300">
+                  <div
+                    key={index}
+                    onMouseEnter={() => setActiveStepIndex(index)}
+                    className={`flex items-center gap-6 bg-white p-6 shadow-sm border-l-4 transition-all duration-300 ${
+                      activeStepIndex === index ? 'border-primary' : 'border-slate-100'
+                    }`}
+                  >
                     <div className="flex flex-col items-center justify-center min-w-[50px]">
                       <span className="text-2xl font-black text-slate-300">{String(index + 1).padStart(2, '0')}</span>
                     </div>
@@ -122,7 +133,11 @@ const Hero: React.FC = () => {
                 ))}
               </div>
             </div>
-            <div className="relative h-[600px] overflow-hidden rounded-lg shadow-2xl">
+            <div
+              className="relative h-[600px] overflow-hidden rounded-lg shadow-2xl"
+              data-reveal
+              style={{ '--reveal-delay': '120ms' } as React.CSSProperties}
+            >
               <img
                 alt="Japanese learning materials"
                 className="w-full h-full object-cover"

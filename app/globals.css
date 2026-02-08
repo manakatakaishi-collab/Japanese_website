@@ -51,3 +51,47 @@ body {
   max-width: 980px;
   margin-inline: auto;
 }
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 700ms cubic-bezier(0.2, 0.65, 0.2, 1),
+    transform 700ms cubic-bezier(0.2, 0.65, 0.2, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.btn-lift {
+  transition:
+    transform 240ms ease,
+    box-shadow 240ms ease,
+    background-color 240ms ease,
+    color 240ms ease,
+    border-color 240ms ease;
+}
+
+.btn-lift:hover {
+  transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .btn-lift {
+    transition: none;
+  }
+
+  .btn-lift:hover {
+    transform: none;
+  }
+}

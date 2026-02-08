@@ -3,11 +3,31 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React, { useState, useEffect } from 'react';
+import { withBasePath } from '@/lib/base-path';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
+
+  const normalizePath = (path: string | null) => {
+    if (!path) return '/';
+
+    const base = withBasePath('/');
+    let normalized = path;
+
+    if (base !== '/' && normalized.startsWith(base)) {
+      normalized = normalized.slice(base.length - 1) || '/';
+    }
+
+    if (normalized.length > 1 && normalized.endsWith('/')) {
+      normalized = normalized.slice(0, -1);
+    }
+
+    return normalized || '/';
+  };
+
+  const currentPath = normalizePath(pathname);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -22,7 +42,7 @@ const Navbar: React.FC = () => {
   ];
 
   return (
-    <header className={`sticky top-0 z-[100] transition-all duration-300 border-b ${isScrolled ? 'bg-white/95 backdrop-blur-md border-gray-100 py-3 shadow-sm' : 'bg-white border-gray-50 py-3'}`}>
+    <header className={`sticky top-0 z-[100] transition-all duration-300 border-b ${isScrolled ? 'bg-white/95 backdrop-blur-md border-gray-100 py-3 shadow-sm' : 'bg-white/85 backdrop-blur-sm border-gray-50 py-3'}`}>
       <div className="site-content site-x flex items-center justify-between">
         <Link href="/" className="flex items-center gap-4 group text-left">
           {/* Custom Dual-Flag Logo */}
@@ -50,7 +70,7 @@ const Navbar: React.FC = () => {
             <Link
               key={idx}
               href={item.href}
-              className={`text-sm font-bold uppercase tracking-wider transition-all border-b-2 py-1 ${pathname === item.href ? 'text-primary border-primary' : 'text-slate-500 border-transparent hover:text-primary'}`}
+              className={`text-sm font-bold uppercase tracking-wider transition-all border-b-2 py-1 ${currentPath === item.href ? 'text-primary border-primary' : 'text-slate-500 border-transparent hover:text-primary'}`}
             >
               {item.name}
             </Link>
@@ -60,7 +80,7 @@ const Navbar: React.FC = () => {
         <div className="flex items-center gap-4">
           <Link
             href="/booking"
-            className={`hidden sm:block text-xs font-black uppercase tracking-[0.2em] px-6 py-3 rounded-none transition-all duration-300 ${pathname === '/booking' ? 'bg-slate-900 text-white' : 'bg-primary text-white hover:bg-slate-900'}`}
+            className={`btn-lift hidden sm:block text-xs font-black uppercase tracking-[0.2em] px-6 py-3 rounded-none transition-all duration-300 ${currentPath === '/booking' ? 'bg-slate-900 text-white' : 'bg-primary text-white hover:bg-slate-900'}`}
           >
             Contact Me
           </Link>
@@ -86,7 +106,7 @@ const Navbar: React.FC = () => {
               key={idx}
               href={item.href}
               onClick={() => setIsMenuOpen(false)}
-              className={`text-4xl font-black uppercase tracking-tighter text-left ${pathname === item.href ? 'text-primary' : 'text-slate-900'}`}
+              className={`text-4xl font-black uppercase tracking-tighter text-left ${currentPath === item.href ? 'text-primary' : 'text-slate-900'}`}
             >
               {item.name}
             </Link>
@@ -94,7 +114,7 @@ const Navbar: React.FC = () => {
           <Link
             href="/booking"
             onClick={() => setIsMenuOpen(false)}
-            className={`text-4xl font-black uppercase tracking-tighter text-left ${pathname === '/booking' ? 'text-primary' : 'text-slate-900'}`}
+            className={`text-4xl font-black uppercase tracking-tighter text-left ${currentPath === '/booking' ? 'text-primary' : 'text-slate-900'}`}
           >
             Contact Me
           </Link>

@@ -61,11 +61,11 @@ const Booking: React.FC = () => {
         ]}
       />
 
-      <main className="site-content site-x section-y text-left">
+      <main className="site-content site-x section-y text-left" data-reveal>
 
         <div className="flex flex-col lg:flex-row lg:items-stretch gap-16">
-          <div className="w-full lg:w-2/3">
-            <div id="inquiry-form" className="bg-white p-10 rounded-2xl border border-gray-100 shadow-2xl shadow-gray-200/50">
+          <div className="w-full lg:w-2/3" data-reveal>
+            <div id="inquiry-form" className="bg-white p-10 rounded-2xl border border-gray-100 shadow-2xl shadow-gray-200/50" data-reveal>
               <h3 className="text-2xl font-bold mb-8 flex items-center gap-3 text-slate-900">
                 <span className="w-2 h-8 bg-primary rounded-full"></span>
                 Inquiry Form
@@ -83,8 +83,12 @@ const Booking: React.FC = () => {
             </div>
           </div>
 
-          <div className="w-full lg:w-1/3 flex flex-col gap-8 h-full">
-            <div className="bg-slate-50 p-10 rounded-2xl border border-slate-200">
+          <div
+            className="w-full lg:w-1/3 flex flex-col gap-8 h-full"
+            data-reveal
+            style={{ '--reveal-delay': '120ms' } as React.CSSProperties}
+          >
+            <div className="bg-slate-50 p-10 rounded-2xl border border-slate-200" data-reveal>
               <div className="flex items-center gap-3 mb-6">
                 <span className="material-symbols-outlined text-primary">contact_support</span>
                 <h3 className="text-xl font-black text-slate-900 uppercase tracking-tight">Direct Info</h3>
@@ -124,7 +128,11 @@ const Booking: React.FC = () => {
               </div>
             </div>
 
-            <div className="bg-primary/5 p-10 rounded-2xl border border-primary/10">
+            <div
+              className="bg-primary/5 p-10 rounded-2xl border border-primary/10"
+              data-reveal
+              style={{ '--reveal-delay': '70ms' } as React.CSSProperties}
+            >
               <div className="flex items-center gap-3 mb-4">
                 <span className="material-symbols-outlined text-primary">bolt</span>
                 <h3 className="text-xl font-black text-slate-900 uppercase tracking-tight">Fast Response</h3>
@@ -134,7 +142,11 @@ const Booking: React.FC = () => {
               </p>
             </div>
 
-            <div className="bg-slate-50 p-8 rounded-2xl border border-slate-200 mt-auto">
+            <div
+              className="bg-slate-50 p-8 rounded-2xl border border-slate-200 mt-auto"
+              data-reveal
+              style={{ '--reveal-delay': '140ms' } as React.CSSProperties}
+            >
               <div className="flex items-center gap-3 mb-4">
                 <span className="material-symbols-outlined text-slate-400">place</span>
                 <h3 className="text-xl font-black text-slate-900 uppercase tracking-tight">Lesson Locations</h3>

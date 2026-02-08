@@ -70,10 +70,10 @@ const Lessons: React.FC = () => {
         ]}
       />
 
-      <div className="site-x section-y bg-white">
+      <div className="site-x section-y bg-white" data-reveal>
         <div className="site-content space-y-14 lg:space-y-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-stretch">
-            <div className="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 lg:p-10 text-left h-full flex flex-col justify-between">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-stretch" data-reveal>
+            <div className="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 lg:p-10 text-left h-full flex flex-col justify-between" data-reveal>
               <div className="space-y-8">
                 <div className="flex items-center gap-3">
                   <div className="h-[2px] w-12 bg-primary"></div>
@@ -89,7 +89,11 @@ const Lessons: React.FC = () => {
               </div>
             </div>
 
-            <div className="rounded-3xl border border-slate-200 bg-slate-50/70 p-6 sm:p-8 lg:p-10 text-left h-full space-y-6">
+            <div
+              className="rounded-3xl border border-slate-200 bg-slate-50/70 p-6 sm:p-8 lg:p-10 text-left h-full space-y-6"
+              data-reveal
+              style={{ '--reveal-delay': '120ms' } as React.CSSProperties}
+            >
               <div className="space-y-6">
                 <div className="flex items-center gap-3">
                   <div className="h-[2px] w-12 bg-primary"></div>
@@ -118,7 +122,7 @@ const Lessons: React.FC = () => {
             </div>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-6" data-reveal>
             <div className="flex items-center gap-3">
               <div className="h-[2px] w-12 bg-primary"></div>
               <span className="text-primary font-black tracking-[0.3em] text-xs uppercase">Lesson Formats</span>
@@ -129,6 +133,8 @@ const Lessons: React.FC = () => {
               <div
                 key={idx}
                 className="group border border-slate-200 rounded-3xl p-6 sm:p-8 bg-white hover:border-primary/40 hover:shadow-md transition-all duration-300 h-full"
+                data-reveal
+                style={{ '--reveal-delay': `${idx * 70}ms` } as React.CSSProperties}
               >
                 <div className="flex flex-col sm:flex-row sm:items-start gap-6 h-full">
                   <div className="w-20 h-20 rounded-full border-2 border-slate-100 flex items-center justify-center transition-all duration-300 group-hover:border-primary group-hover:scale-110 bg-slate-50">
@@ -170,13 +176,13 @@ const Lessons: React.FC = () => {
         </div>
       </div>
 
-      <div className="site-x section-y bg-[#fffcf9] border-t border-orange-50 relative overflow-hidden">
+      <div className="site-x section-y bg-[#fffcf9] border-t border-orange-50 relative overflow-hidden" data-reveal>
         <div className="absolute bottom-0 right-0 p-10 opacity-[0.02] select-none pointer-events-none">
           <span className="japanese-title text-[35rem] leading-none text-slate-900">答</span>
         </div>
         <div className="site-content">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
-            <div className="space-y-12">
+            <div className="space-y-12" data-reveal>
               <div className="space-y-8">
                 <div className="flex items-center gap-4">
                   <div className="w-16 h-1 bg-primary rounded-full"></div>
@@ -198,7 +204,11 @@ const Lessons: React.FC = () => {
                 </div>
               </div>
             </div>
-            <div className="space-y-6 pt-12 lg:pt-0">
+            <div
+              className="space-y-6 pt-12 lg:pt-0"
+              data-reveal
+              style={{ '--reveal-delay': '120ms' } as React.CSSProperties}
+            >
               {[
                 {
                   q: 'Where do in-person lessons take place?',
@@ -221,7 +231,13 @@ const Lessons: React.FC = () => {
                   a: 'The trial lesson helps assess your level, discuss your goals, and choose the best lesson format for you.',
                 },
               ].map((faq, idx) => (
-                <details key={idx} className="group bg-white rounded-[2.5rem] border border-orange-100/40 shadow-sm hover:shadow-md transition-all duration-500 open:shadow-xl open:border-primary/10 overflow-hidden" open={idx === 0}>
+                <details
+                  key={idx}
+                  className="group bg-white rounded-[2.5rem] border border-orange-100/40 shadow-sm hover:shadow-md transition-all duration-500 open:shadow-xl open:border-primary/10 overflow-hidden"
+                  open={idx === 0}
+                  data-reveal
+                  style={{ '--reveal-delay': `${idx * 55}ms` } as React.CSSProperties}
+                >
                   <summary className="flex items-center justify-between p-10 cursor-pointer list-none">
                     <span className="text-xl font-black text-slate-900 pr-12 leading-tight">
                       <span className="text-primary mr-4 italic text-2xl">Q.</span>{faq.q}
@@ -248,7 +264,7 @@ const Lessons: React.FC = () => {
         </div>
       </div>
 
-      <div className="site-x section-y bg-white">
+      <div className="site-x section-y bg-white" data-reveal>
         <div className="site-content">
           <div className="bg-primary rounded-[3rem] p-8 md:p-12 lg:p-14 flex flex-col items-center justify-center gap-7 text-white relative overflow-hidden shadow-2xl text-center">
             <div className="absolute -top-10 left-4 md:left-8 opacity-10 select-none pointer-events-none">
@@ -267,7 +283,7 @@ const Lessons: React.FC = () => {
             </div>
             <Link
               href="/booking"
-              className="bg-white text-primary px-12 py-5 rounded-2xl font-black text-lg uppercase tracking-widest hover:bg-slate-900 hover:text-white transition-all shadow-2xl active:scale-95 relative z-10 whitespace-nowrap"
+              className="btn-lift bg-white text-primary px-12 py-5 rounded-2xl font-black text-lg uppercase tracking-widest hover:bg-slate-900 hover:text-white transition-all shadow-2xl active:scale-95 relative z-10 whitespace-nowrap"
             >
               Book Your Trial Lesson
             </Link>

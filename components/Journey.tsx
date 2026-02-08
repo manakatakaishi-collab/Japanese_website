@@ -47,7 +47,7 @@ const Journey: React.FC = () => {
         ]}
       />
 
-      <div className="site-x section-y flex justify-center">
+      <div className="site-x section-y flex justify-center" data-reveal>
         <div className="layout-content-container site-content flex flex-col">
           <div className="flex flex-col gap-4 px-4 pb-12 text-center">
             <h2 className="text-slate-900 text-4xl font-black leading-tight tracking-tighter uppercase font-display">My Global Journey</h2>
@@ -56,7 +56,7 @@ const Journey: React.FC = () => {
           <div className="relative py-10 text-left">
             <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-gray-100 -translate-x-1/2 hidden md:block"></div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-24 mb-24 relative">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-24 mb-24 relative" data-reveal>
               <div className="flex flex-col items-end text-right md:pr-4">
                 <div className="inline-block px-4 py-1 bg-primary text-white text-xs font-black tracking-widest uppercase mb-4 rounded-full shadow-lg shadow-primary/20">2005 - 2023</div>
                 <h3 className="text-slate-900 text-2xl font-black mb-3">Roots in Japan</h3>
@@ -75,7 +75,11 @@ const Journey: React.FC = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-24 mb-24 relative">
+            <div
+              className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-24 mb-24 relative"
+              data-reveal
+              style={{ '--reveal-delay': '80ms' } as React.CSSProperties}
+            >
               <div className="order-2 md:order-1 relative">
                 <div className="absolute right-[-52px] top-2 bg-primary size-10 rounded-full flex items-center justify-center text-white shadow-xl z-10 border-4 border-white hidden md:flex">
                   <span className="material-symbols-outlined text-sm">school</span>
@@ -91,7 +95,11 @@ const Journey: React.FC = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-24 relative">
+            <div
+              className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-24 relative"
+              data-reveal
+              style={{ '--reveal-delay': '160ms' } as React.CSSProperties}
+            >
               <div className="flex flex-col items-end text-right md:pr-4">
                 <div className="inline-block px-4 py-1 bg-primary text-white text-xs font-black tracking-widest uppercase mb-4 rounded-full shadow-lg shadow-primary/20">2025 September - Present</div>
                 <h3 className="text-slate-900 text-2xl font-black mb-3">Toulouse, France</h3>
@@ -110,7 +118,7 @@ const Journey: React.FC = () => {
         </div>
       </div>
 
-      <div className="site-x section-y flex justify-center bg-slate-50">
+      <div className="site-x section-y flex justify-center bg-slate-50" data-reveal>
         <div className="layout-content-container site-content flex flex-col">
           <div className="flex flex-col gap-4 px-4 pb-16 text-center">
             <div className="flex items-center justify-center gap-4 mb-2">
@@ -122,7 +130,12 @@ const Journey: React.FC = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 px-4">
             {teachingApproach.map((item, idx) => (
-              <div key={idx} className="flex flex-col text-left gap-6 p-10 bg-white transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 group border border-slate-100 rounded-3xl">
+              <div
+                key={idx}
+                className="flex flex-col text-left gap-6 p-10 bg-white transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 group border border-slate-100 rounded-3xl"
+                data-reveal
+                style={{ '--reveal-delay': `${idx * 70}ms` } as React.CSSProperties}
+              >
                 <div className="size-14 bg-primary/5 rounded-2xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-sm">
                   <span className="material-symbols-outlined text-3xl">{item.icon}</span>
                 </div>
@@ -136,7 +149,7 @@ const Journey: React.FC = () => {
         </div>
       </div>
 
-      <div className="site-x section-y flex justify-center">
+      <div className="site-x section-y flex justify-center" data-reveal>
         <div className="layout-content-container site-content flex flex-col">
           <div className="bg-primary rounded-[3rem] p-8 md:p-12 lg:p-14 flex flex-col items-center justify-center gap-7 text-white relative overflow-hidden shadow-2xl text-center">
             <div className="absolute -top-10 left-4 md:left-8 opacity-10 select-none pointer-events-none">
@@ -151,7 +164,7 @@ const Journey: React.FC = () => {
             </div>
             <Link
               href="/booking"
-              className="bg-white text-primary px-12 py-5 rounded-2xl font-black text-lg hover:bg-gray-50 transition-all shadow-2xl active:scale-95 relative z-10 uppercase tracking-widest"
+              className="btn-lift bg-white text-primary px-12 py-5 rounded-2xl font-black text-lg hover:bg-gray-50 transition-all shadow-2xl active:scale-95 relative z-10 uppercase tracking-widest"
             >
               BOOK A TRIAL LESSON
             </Link>

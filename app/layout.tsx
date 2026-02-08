@@ -3,6 +3,7 @@ import { Noto_Sans_JP, Noto_Serif_JP, Plus_Jakarta_Sans } from "next/font/google
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import "./globals.css";
+import ScrollReveal from "@/components/ScrollReveal";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://manaka-japanese.fr";
 
@@ -66,6 +67,7 @@ export default function RootLayout({
       >
         <div className="min-h-screen flex flex-col font-sans selection:bg-primary/20">
           <Navbar />
+          <ScrollReveal />
           <main className="flex-grow">{children}</main>
           <Footer />
         </div>

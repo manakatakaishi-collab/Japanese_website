@@ -1,19 +1,16 @@
 import type { NextConfig } from "next";
 
 const isGithubActions = process.env.GITHUB_ACTIONS === "true";
-const repositoryOwner = process.env.GITHUB_REPOSITORY?.split("/")[0] ?? "";
 const repositoryName = process.env.GITHUB_REPOSITORY?.split("/")[1] ?? "";
 const configuredBasePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+const useRepoBasePath = process.env.USE_REPO_BASE_PATH === "true";
 const basePath =
   configuredBasePath !== ""
     ? configuredBasePath
-    : isGithubActions && repositoryName
+    : isGithubActions && useRepoBasePath && repositoryName
       ? `/${repositoryName}`
       : "";
-const defaultSiteUrl =
-  configuredBasePath === "" && isGithubActions && repositoryOwner && repositoryName
-    ? `https://${repositoryOwner}.github.io/${repositoryName}`
-    : "https://manaka-japanese.fr";
+const defaultSiteUrl = "https://manakatakaishi.me";
 
 const nextConfig: NextConfig = {
   output: "export",

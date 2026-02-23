@@ -1,6 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { withBasePath } from '@/lib/base-path';
+import IconMark from '@/components/IconMark';
 import PageHero from '@/components/PageHero';
 import {
   getLocalizedPath,
@@ -82,9 +84,7 @@ const Lessons: React.FC<LessonsProps> = ({ lang = 'en' }) => {
                       idx < 2 ? 'text-slate-900 text-base sm:text-lg font-bold' : 'text-slate-600 text-base font-medium'
                     }`}
                   >
-                    <span className={`material-symbols-outlined text-primary mt-[2px] ${idx < 2 ? 'text-xl' : 'text-lg'}`}>
-                      check_circle
-                    </span>
+                    <IconMark name="check_circle" className={`text-primary mt-[2px] ${idx < 2 ? 'text-xl' : 'text-lg'}`} />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -109,7 +109,7 @@ const Lessons: React.FC<LessonsProps> = ({ lang = 'en' }) => {
                 <div className="flex flex-col sm:flex-row sm:items-start gap-6 h-full">
                   <div className="w-20 h-20 rounded-full border-2 border-slate-100 flex items-center justify-center transition-all duration-300 group-hover:border-primary group-hover:scale-110 bg-slate-50">
                     <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center text-primary transition-all duration-300 group-hover:bg-primary/5">
-                      <span className="material-symbols-outlined text-3xl">{format.icon}</span>
+                      <IconMark name={format.icon} className="text-3xl" />
                     </div>
                   </div>
 
@@ -135,7 +135,7 @@ const Lessons: React.FC<LessonsProps> = ({ lang = 'en' }) => {
                       href={getLocalizedPath(lang, '/booking')}
                       className="inline-flex items-center gap-2 text-base font-black text-primary uppercase tracking-widest pt-2 hover:gap-4 transition-all mt-auto"
                     >
-                      {lessonsCopy.checkAvailability(lang)} <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                      {lessonsCopy.checkAvailability(lang)} <IconMark name="arrow_forward" className="text-sm" />
                     </Link>
                   </div>
                 </div>
@@ -164,9 +164,11 @@ const Lessons: React.FC<LessonsProps> = ({ lang = 'en' }) => {
               <div className="relative group max-w-md">
                 <div className="absolute -inset-6 bg-primary/5 rounded-[4rem] blur-3xl group-hover:bg-primary/10 transition-all duration-700"></div>
                 <div className="relative z-10 aspect-[4/5] overflow-hidden flex items-center justify-center">
-                  <img
+                  <Image
                     src={faqIllustration}
                     alt="Watercolor illustration of a thinking student"
+                    fill
+                    sizes="(min-width: 1024px) 33vw, 100vw"
                     className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700"
                   />
                 </div>
@@ -189,7 +191,7 @@ const Lessons: React.FC<LessonsProps> = ({ lang = 'en' }) => {
                     <span className="text-xl font-black text-slate-900 pr-12 leading-tight">
                       <span className="text-primary mr-4 italic text-2xl">Q.</span>{faq.q}
                     </span>
-                    <span className="material-symbols-outlined text-primary group-open:rotate-180 transition-transform duration-500">expand_more</span>
+                    <IconMark name="expand_more" className="text-primary group-open:rotate-180 transition-transform duration-500" />
                   </summary>
                   <div className="px-10 pb-10 pt-2">
                     <div className="w-12 h-1 bg-slate-50 mb-8 rounded-full"></div>

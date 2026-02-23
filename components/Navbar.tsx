@@ -4,7 +4,8 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import { withBasePath } from '@/lib/base-path';
-import { getHomePath, getLangFromPathname, type Lang, navCopy } from '@/lib/i18n';
+import IconMark from '@/components/IconMark';
+import { getHomePath, getLangFromPathname, getLocalizedPath, type Lang, navCopy } from '@/lib/i18n';
 
 const languageOptions: Array<{ lang: Lang; flag: string; label: string }> = [
   { lang: 'en', flag: '🇬🇧', label: 'English' },
@@ -37,6 +38,7 @@ const Navbar: React.FC = () => {
   const currentLang = getLangFromPathname(currentPath);
   const navItems = navCopy.items(currentLang);
   const contactHref = navCopy.contactHref(currentLang);
+  const getLanguageSwitchHref = (targetLang: Lang) => getLocalizedPath(targetLang, currentPath);
 
   const isActive = (href: string) => {
     const homePath = getHomePath(currentLang);
@@ -61,7 +63,7 @@ const Navbar: React.FC = () => {
             {languageOptions.map((option) => (
               <Link
                 key={option.lang}
-                href={getHomePath(option.lang)}
+                href={getLanguageSwitchHref(option.lang)}
                 aria-label={`Switch to ${option.label}`}
                 className={`inline-flex h-8 w-8 items-center justify-center rounded-full text-lg transition-all ${
                   currentLang === option.lang
@@ -106,9 +108,7 @@ const Navbar: React.FC = () => {
             className="md:hidden p-2 text-slate-900"
             aria-label="Toggle menu"
           >
-            <span className="material-symbols-outlined text-3xl">
-              {isMenuOpen ? 'close' : 'menu'}
-            </span>
+            <IconMark name={isMenuOpen ? 'close' : 'menu'} className="text-3xl" />
           </button>
         </div>
       </div>
@@ -119,7 +119,7 @@ const Navbar: React.FC = () => {
             {languageOptions.map((option) => (
               <Link
                 key={option.lang}
-                href={getHomePath(option.lang)}
+                href={getLanguageSwitchHref(option.lang)}
                 onClick={() => setIsMenuOpen(false)}
                 aria-label={`Switch to ${option.label}`}
                 className={`inline-flex h-10 w-10 items-center justify-center rounded-full text-xl transition-all ${

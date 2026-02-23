@@ -3,6 +3,7 @@
 import React, { useCallback, useEffect } from 'react';
 import Script from 'next/script';
 import { withBasePath } from '@/lib/base-path';
+import IconMark from '@/components/IconMark';
 import PageHero from '@/components/PageHero';
 import { bookingCopy, getLocalizedPath, type Lang } from '@/lib/i18n';
 
@@ -91,14 +92,14 @@ const Booking: React.FC<BookingProps> = ({ lang = 'en' }) => {
           >
             <div className="bg-slate-50 p-10 rounded-2xl border border-slate-200" data-reveal>
               <div className="flex items-center gap-3 mb-6">
-                <span className="material-symbols-outlined text-primary">contact_support</span>
+                <IconMark name="contact_support" className="text-primary" />
                 <h3 className="text-xl font-black text-slate-900 uppercase tracking-tight">{bookingCopy.directInfo(lang)}</h3>
               </div>
 
               <div className="space-y-6">
                 <div>
                   <div className="flex items-center gap-2 mb-2">
-                    <span className="material-symbols-outlined text-slate-400 text-sm">mail</span>
+                    <IconMark name="mail" className="text-slate-400 text-sm" />
                     <p className="text-slate-900 font-bold uppercase tracking-widest text-[10px]">{bookingCopy.emailAddress(lang)}</p>
                   </div>
                   <a href="mailto:contact@manaka-japanese.fr" className="text-primary font-bold hover:underline">
@@ -108,7 +109,7 @@ const Booking: React.FC<BookingProps> = ({ lang = 'en' }) => {
 
                 <div>
                   <div className="flex items-center gap-2 mb-3">
-                    <span className="material-symbols-outlined text-slate-400 text-sm">schedule</span>
+                    <IconMark name="schedule" className="text-slate-400 text-sm" />
                     <p className="text-slate-900 font-bold uppercase tracking-widest text-[10px]">{bookingCopy.businessHours(lang)}</p>
                   </div>
                   <ul className="space-y-2 text-sm text-slate-500 font-medium">
@@ -135,7 +136,7 @@ const Booking: React.FC<BookingProps> = ({ lang = 'en' }) => {
               style={{ '--reveal-delay': '70ms' } as React.CSSProperties}
             >
               <div className="flex items-center gap-3 mb-4">
-                <span className="material-symbols-outlined text-primary">bolt</span>
+                <IconMark name="bolt" className="text-primary" />
                 <h3 className="text-xl font-black text-slate-900 uppercase tracking-tight">{bookingCopy.fastResponse(lang)}</h3>
               </div>
               <p className="text-slate-500 font-medium leading-relaxed">
@@ -149,7 +150,7 @@ const Booking: React.FC<BookingProps> = ({ lang = 'en' }) => {
               style={{ '--reveal-delay': '140ms' } as React.CSSProperties}
             >
               <div className="flex items-center gap-3 mb-4">
-                <span className="material-symbols-outlined text-slate-400">place</span>
+                <IconMark name="place" className="text-slate-400" />
                 <h3 className="text-xl font-black text-slate-900 uppercase tracking-tight">{bookingCopy.locations(lang)}</h3>
               </div>
               <p className="text-slate-500 text-sm font-medium leading-relaxed">{bookingCopy.locationsDesc(lang)}</p>

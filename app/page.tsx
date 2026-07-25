@@ -6,6 +6,14 @@ export const metadata: Metadata = {
   description:
     'Personalized Japanese lessons in Toulouse with a native teacher. Private, group, and online formats for all levels.',
   alternates: { canonical: '/en' },
+  robots: {
+    index: false,
+    follow: true,
+    googleBot: {
+      index: false,
+      follow: true,
+    },
+  },
 };
 
 export default function HomePage() {

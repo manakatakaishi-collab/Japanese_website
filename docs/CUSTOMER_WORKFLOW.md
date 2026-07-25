@@ -21,15 +21,18 @@ The agent replies with:
 - any missing info it needs.
 
 To let it proceed, reply exactly:
-`APPROVE PLAN`
+`APPROVE PLAN` or `GO`
 
 ### Step 2 — Review + publish
 After the agent implements the change, it will:
 - summarize the updates,
-- show “before and after” screenshots for a quick visual check,
 - tell you how to preview locally,
+- ask you to open the page in your own browser and confirm it looks right,
 - run checks (`npm run lint` and `npm run build`),
 - then ask if it may publish.
+
+Screenshots are not used by default.
+They are used only when visual issues remain after the first update.
 
 To publish to GitHub Pages, reply exactly:
 `APPROVE PUBLISH`
@@ -57,8 +60,8 @@ Notes:
 
 ## Quick visual check (extra safety)
 For changes that affect what you see on the website (text, pictures, layout):
-- The agent will start the website locally and take “before and after” screenshots.
-- You will also be asked to open the page in your own browser to confirm it looks right.
+- First, open the updated page in your own browser and confirm the result.
+- If something still looks wrong, the agent can take Playwright screenshots for debugging and comparison.
 
 ## How to preview changes locally
 1) Open a terminal in the website folder.
@@ -68,7 +71,8 @@ For changes that affect what you see on the website (text, pictures, layout):
 3) Open:
    - http://localhost:3000
 4) Click through the pages you care about:
-   - Home, About, Lessons, Booking
+   - `/en`, `/en/about`, `/en/lessons`, `/en/booking`
+   - `/ja`, `/ja/about`, `/ja/lessons`, `/ja/booking`
 
 ## How publishing works
 When changes are pushed to the `main` branch, GitHub Actions builds the static site and deploys it to GitHub Pages.

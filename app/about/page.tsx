@@ -5,6 +5,14 @@ export const metadata: Metadata = {
   title: 'About Manaka',
   description:
     'Meet Manaka, a native Japanese tutor in Toulouse with international study experience from Tokyo to Exeter to France.',
+  robots: {
+    index: false,
+    follow: true,
+    googleBot: {
+      index: false,
+      follow: true,
+    },
+  },
   alternates: {
     canonical: '/en/about',
     languages: {

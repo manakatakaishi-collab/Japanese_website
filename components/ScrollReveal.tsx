@@ -9,6 +9,8 @@ const ScrollReveal = () => {
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
+    document.documentElement.classList.add('reveal-ready');
+
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const elements = Array.from(document.querySelectorAll<HTMLElement>('[data-reveal]'));
 
@@ -20,6 +22,11 @@ const ScrollReveal = () => {
       });
       return;
     }
+
+    // Keep content readable even if the observer is delayed or fails.
+    elements.forEach((element) => {
+      element.classList.add('is-visible');
+    });
 
     const observer = new IntersectionObserver(
       (entries) => {

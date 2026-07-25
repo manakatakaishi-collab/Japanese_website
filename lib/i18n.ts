@@ -92,8 +92,8 @@ export const footerCopy = {
   copyright: (lang: Lang) =>
     t(
       {
-        en: '© 2024 Manaka Japanese. Learning Japanese made simple.',
-        ja: '© 2024 Manaka Japanese. わかりやすく続けやすい日本語学習。',
+        en: '© 2026 Manaka Japanese. Learning Japanese made simple.',
+        ja: '© 2026 Manaka Japanese. わかりやすく続けやすい日本語学習。',
       },
       lang,
     ),

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { withBasePath } from '@/lib/base-path';
 import PageHero from '@/components/PageHero';
 import { getLocalizedPath, homeCopy, homeFormats, homeSteps, type Lang } from '@/lib/i18n';
@@ -52,11 +53,15 @@ const Hero: React.FC<HeroProps> = ({ lang = 'en' }) => {
                 style={{ '--reveal-delay': `${i * 80}ms` } as React.CSSProperties}
               >
                 <div className="h-52 overflow-hidden border-b border-slate-100">
-                  <img
-                    src={format.image}
-                    alt={format.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
+                  <div className="relative h-full w-full">
+                    <Image
+                      src={format.image}
+                      alt={format.title}
+                      fill
+                      sizes="(min-width: 768px) 33vw, 100vw"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                  </div>
                 </div>
                 <div className="p-8 flex flex-col flex-1 text-center">
                   <h3 className="text-2xl font-black mb-4 text-slate-900 uppercase tracking-tight">{format.title}</h3>
@@ -106,10 +111,12 @@ const Hero: React.FC<HeroProps> = ({ lang = 'en' }) => {
               data-reveal
               style={{ '--reveal-delay': '120ms' } as React.CSSProperties}
             >
-              <img
+              <Image
                 alt={homeCopy.imageAlt(lang)}
                 className="w-full h-full object-cover"
                 src={withBasePath('/images/lessons-hero.png')}
+                fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex flex-col justify-end p-12 text-left">
                 <p className="text-white text-3xl font-black leading-tight italic">{homeCopy.imageQuote(lang)}</p>

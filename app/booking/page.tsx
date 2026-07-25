@@ -5,6 +5,14 @@ export const metadata: Metadata = {
   title: 'Contact and Booking',
   description:
     'Book a Japanese trial lesson in Toulouse or online. Share your level and goals to get a personalized plan and schedule.',
+  robots: {
+    index: false,
+    follow: true,
+    googleBot: {
+      index: false,
+      follow: true,
+    },
+  },
   alternates: {
     canonical: '/en/booking',
     languages: {

@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 type Cta = {
   href: string;
@@ -83,7 +84,13 @@ const PageHero: React.FC<PageHeroProps> = ({
           >
             <div className={`relative w-full max-w-[420px] mx-auto lg:mx-0 ${imageAlignClass}`}>
               <div className="relative aspect-[4/5] border-[12px] border-white shadow-2xl overflow-hidden bg-slate-100 rounded-lg">
-                <img src={imageSrc} alt={imageAlt} className="w-full h-full object-cover object-center" />
+                <Image
+                  src={imageSrc}
+                  alt={imageAlt}
+                  fill
+                  sizes="(min-width: 1024px) 420px, 100vw"
+                  className="w-full h-full object-cover object-center"
+                />
               </div>
             </div>
           </div>

@@ -1,21 +1,27 @@
 # Content map (where to edit)
 
 ## Pages → Components
-- `/` (Home)
-  - `app/page.tsx`
+- Localized home:
+  - `app/[lang]/page.tsx`
   - `components/Hero.tsx`
-
-- `/about` (About)
-  - `app/about/page.tsx`
+- Localized about:
+  - `app/[lang]/about/page.tsx`
   - `components/Journey.tsx`
-
-- `/lessons` (Lessons & Fees)
-  - `app/lessons/page.tsx`
+- Localized lessons:
+  - `app/[lang]/lessons/page.tsx`
   - `components/Lessons.tsx`
-
-- `/booking` (Contact / Booking)
-  - `app/booking/page.tsx`
+- Localized booking:
+  - `app/[lang]/booking/page.tsx`
   - `components/Booking.tsx`
+
+## Compatibility routes (non-indexed)
+- English compatibility pages:
+  - `app/page.tsx`
+  - `app/about/page.tsx`
+  - `app/lessons/page.tsx`
+  - `app/booking/page.tsx`
+- Purpose:
+  - Keep old links working while search engines use `/en/*` and `/ja/*`.
 
 ## Global layout / SEO
 - Layout shell + global metadata
@@ -41,4 +47,3 @@
   - `public/images/*`
 - When referencing local assets in components, prefer:
   - `withBasePath('/images/<file>')` from `lib/base-path.ts`
-
